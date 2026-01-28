@@ -1,0 +1,102 @@
+Modélisation géométrie tube Eppendorf avec environnement (sim0C3)
+
+
+1.Géometrie
+- world air cube diametre =0.3 m
+- Enveloppe cubique centrée en (0,0,0), matériau : air, hx, hy = 10.0*cm et hz =  6.0*cm
+- Modélisation environnement tube par 9 fichiers GDML:
+		MiniX-EnveloppeTubeX-StainlessSteel304
+		MiniX-TubeXAlumine-DialuminiumTrioxide
+		MiniX-TubeXAnodeTungsten-Tungsten
+		MiniX-TubeXContenuVideAnode_FenetreSortie-Vacuum
+		MiniX-TubeXContenuVideCathode_Anode-Vacuum
+		MiniX-TubeXFenetreBeryllium-Beryllium
+            % MiniX-CollimateurSubAluminium-Aluminium
+			% MiniX-CollimateurSubLaiton-Brass
+			% MiniX-PorteCollimateur-StainlessSteel304
+
+- Cube de conversion matériau : H20,  WaterCubeSizeX, WaterCubeSizeY  = (10.0*cm)/2 et WaterCubeSizeZ  = (2.0*cm)/2
+- Sphere de comptage,  Materiau : H20, diamètre 3.0*mm 
+
+2.Physique
+- physicsList = new FTFP_BERT;
+  
+3.Detecteurs Sensible
+- SD spectral pour le plan +Z de l’enveloppe
+      Binning : 0 -> 60 keV en pas de 0.5 keV => 120 bins
+      Emin_keV = 0.0;
+      Emax_keV = 60.0;
+      nBins    = 120;
+      onlyOutward = true; // flux sortant vers +Z
+ SD spectral Attaché au plan mince + limite de pas + debug robuste 
+ 
+4.Ntuple et Histos
+- Déclaration des histogrammes
+	H1("E_in",  "Énergie des particules entrantes dans la sphere", 75, 0., 75*keV);
+    H1("E_out", "Énergie des particules sortantes de la sphere", 75, 0., 75*keV);
+    H1("E_in_Be",  "Énergie des particules entrant dans Beryllium", 75, 0., 75*keV);
+    H1("E_out_Be", "Énergie des particules sortant du Beryllium", 75, 0., 75*keV);
+    H1("E_dep_Be", "Énergie deposee dans le Beryllium", 100, 0., 50*keV);
+    H1("E_dep_WaterSphere", "Énergie deposee dans la WaterSphere", 100, 0., 50*keV);
+    H1("NbHitsPerEvent", "Nombre de hits par événement", 10, 0., 10.);
+    H1("theta primaire", "Distribution theta primaire", 90, 0., 180.);
+    H1("phi primaire", "Distribution phi primaire", 90, -180., 180.);
+    H1("theta secondaire", "Distribution theta secondaire", 90, 0., 180.);
+    H1("phi secondaire", "Distribution phi secondaire", 90, -180., 180.);
+    H1("theta emission", "Distribution theta primaire initial", 90, 0., 180.);
+    H1("energie a l'emission", "Distribution energie initiale", 100, 0., 50*keV); 
+
+- Ntuple pour les hits dans la sphère
+    Ntuple("SphereHits", "Dépôts d'énergie dans la sphère");
+    IColumn("Event"); // Event Number
+    DColumn("x");     // position X
+    DColumn("y");     // position Y
+    DColumn("z");     // position Z
+    DColumn("Edep");  // énergie déposée
+  
+- Ntuple pour les infos de trace
+    Ntuple("trackInfo", "Track user info");
+    IColumn("eventID");
+    IColumn("enteredCube");
+    IColumn("enteredSphere");
+    SColumn("creatorProcess");
+    IColumn("nbInteractedInBe");
+ 
+- Statistiques par événement
+    Ntuple("SphereStats", "Statistiques par événement");
+    IColumn("Event");
+    IColumn("NbHits");
+    DColumn("TotalEdep");
+    DColumn("MeanEdep");   // énergie moyenne
+    DColumn("MaxEdep");  // max edep
+    SColumn("MostCommonParticle");  // nom le plus fréquent
+	
+- Ntuple des passages plan +Z
+  Ntuple("plane_passages", "Traversées +Z du plan mince");
+  DColumn(g_planePassageNtupleId, "x_mm");
+  DColumn(g_planePassageNtupleId, "y_mm");
+  DColumn(g_planePassageNtupleId, "z_mm");
+  DColumn(g_planePassageNtupleId, "ekin_keV");
+  IColumn(g_planePassageNtupleId, "pdg");
+  SColumn(g_planePassageNtupleId, "name");
+
+
+ 5. Tests geométriques
+
+  - Compteur primaires générés
+    mutable G4Accumulable<G4long> fPrimariesGenerated;
+
+  - Compteurs “plan” au niveau stepping
+    G4long gEnterPlanePrim
+    G4long gLeavePlanePrim
+
+    Si gLeavePlanePrim < 1000, c’est que tous les primaires n’ont pas traversé le volume du plan (géométrie, position, aire trop petite, plan mal placé, volume bloquant, etc.).
+    Si gLeavePlanePrim ~ 1000, alors la perte est après (côté SD/ntuple).
+
+    Lecture :
+        primaries_generated doit être 1000.
+        enter_plane_prim et leave_plane_prim doivent être 1000 si la géométrie laisse passer.
+        rows_written doit correspondre à ce que tu observes dans ROOT (t->GetEntries()).
+        unique_primary_events_counted doit être 1000 (au moins une ligne par événement primaire).
+
+ 5. Programme d'analyse  analyse_plane_passages.c
