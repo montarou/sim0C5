@@ -1,0 +1,78 @@
+================================================================================
+           RÉDUCTION DE LA VERBOSITÉ DU FICHIER LOG - GEANT4 SIMULATION
+================================================================================
+
+Date: 30 janvier 2026
+
+PROBLÈME:
+---------
+Le fichier log de la simulation contenait ~42 000 lignes pour 1M d'événements,
+principalement à cause de messages de débogage répétitifs.
+
+Analyse du log original:
+  - [STEP] LV pre/post messages:     27 420 lignes (65%)
+  - [MT-MASTER] [SpecSD] messages:   13 627 lignes (32%)
+  - [TRACE] messages:                    80 lignes
+  - [PROGRESS] messages:                 99 lignes (utiles - conservés)
+  - Autres:                             ~350 lignes
+
+MODIFICATIONS APPORTÉES:
+------------------------
+
+1. SurfaceSpectrumSD.cc
+   ---------------------
+   AVANT: Log de chaque row écrit dans le ntuple + confirmations
+   APRÈS: Logs désactivés (commentés pour débogage futur)
+   
+   - Supprimé: "ThreadTag() [SpecSD] row in event..." (13 600+ lignes)
+   - Supprimé: "[SpecSD] WROTE row in plane_passages..." (20 lignes)
+   - Réduit: "[plane_passages][fill#]" de 10 à 3 messages
+
+2. SteppingAction.cc
+   ------------------
+   AVANT: Log de chaque step traversant logicScorePlane
+   APRÈS: Logs désactivés
+   
+   - Supprimé: "[STEP] LV pre@... post@..." (27 400+ lignes)
+   - Réduit: "[TRACE][PLANE ENTER/LEAVE]" de 40 à 5 messages
+   - Réduit: "[TRACE][Z=60]" de 40 à 5 messages
+   - Simplifié: format des messages TRACE (moins verbeux)
+
+MESSAGES CONSERVÉS:
+-------------------
+Les messages suivants sont conservés car utiles pour l'analyse:
+
+  ✓ [PROGRESS] Event XXXXX | Transmitted: ... | Edep: ... | Dose: ...
+    (1 message tous les 10000 événements = ~100 lignes pour 1M evt)
+
+  ✓ Résumé de fin de run:
+    - [STEP][SUMMARY] enter_plane_prim=... leave_plane_prim=...
+    - [SpecSD][SUMMARY] enter=... leave=... outward=... rows_written=...
+    - [LOSS][BY-PROC] et [LOSS][BY-MAT]
+    - RÉSUMÉ DOSE avec énergies et doses par anneau
+
+  ✓ Messages d'initialisation (géométrie, matériaux, etc.)
+
+  ✓ Messages de diagnostic limités (3-5 premiers événements)
+
+ESTIMATION DE LA RÉDUCTION:
+---------------------------
+  Avant:  ~42 000 lignes
+  Après:  ~1 500 lignes (estimation)
+  
+  Réduction: ~96%
+
+FICHIERS MODIFIÉS:
+------------------
+  - src/SurfaceSpectrumSD.cc
+  - src/SteppingAction.cc
+
+Archive fournie: src_reduced_verbosity.zip
+
+POUR RÉACTIVER LE DÉBOGAGE:
+---------------------------
+Des commentaires ont été laissés dans le code pour permettre de réactiver
+facilement les logs de débogage si nécessaire. Chercher:
+  "// Décommenter pour débogage"
+
+================================================================================

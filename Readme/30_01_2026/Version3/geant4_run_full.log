@@ -1,0 +1,1447 @@
+
+**************************************************************
+ Geant4 version Name: geant4-11-03-patch-01 [MT]   (21-March-2025)
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+[MATERIAL] PVC loaded: G4_POLYVINYL_CHLORIDE, density = 1.3 g/cm3
+<<< Geant4 Physics List simulation engine: FTFP_BERT
+
+Accumulable registered as "accumulable_0"
+Accumulable registered as "accumulable_1"
+Accumulable registered as "accumulable_2"
+Accumulable registered as "accumulable_3"
+Accumulable registered as "accumulable_4"
+Accumulable registered as "accumulable_5"
+Accumulable registered as "accumulable_6"
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Registered graphics systems are:
+  ASCIITree (ATree)
+  DAWNFILE (DAWNFILE)
+  G4HepRepFile (HepRepFile)
+  RayTracer (RayTracer)
+  VRML2FILE (VRML2FILE)
+  gMocrenFile (gMocrenFile)
+  TOOLSSG_OFFSCREEN (TSG_OFFSCREEN, TSG_FILE)
+  OpenGLImmediateQt (OGLIQt, OGLI)
+  OpenGLStoredQt (OGLSQt, OGL, OGLS)
+  OpenGLImmediateX (OGLIX, OGLIQt_FALLBACK)
+  OpenGLStoredX (OGLSX, OGLSQt_FALLBACK)
+  TOOLSSG_X11_GLES (TSG_X11_GLES, TSGX11, TSG_QT_GLES_FALLBACK)
+  TOOLSSG_X11_ZB (TSG_X11_ZB, TSGX11ZB)
+  TOOLSSG_QT_GLES (TSG_QT_GLES, TSGQt, TSG)
+  TOOLSSG_QT_ZB (TSG_QT_ZB, TSGQtZB)
+You may choose a graphics system (driver) with a parameter of
+the command "/vis/open" or "/vis/sceneHandler/create",
+or you may omit the driver parameter and choose at run time:
+- by argument in the construction of G4VisExecutive;
+- by environment variable "G4VIS_DEFAULT_DRIVER";
+- by entry in "~/.g4session";
+- by build flags.
+- Note: This feature is not allowed in batch mode.
+For further information see "examples/basic/B1/exampleB1.cc"
+and "vis.mac".
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByAttribute
+  drawByCharge
+  drawByOriginVolume
+  drawByParticleID
+  drawByEncounteredVolume
+
+Registered models:
+  None
+
+Registered filter factories:
+  attributeFilter
+  chargeFilter
+  originVolumeFilter
+  particleFilter
+  encounteredVolumeFilter
+
+Registered filters:
+  None
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+"/vis/list" to see available colours.
+*** /run/numberOfThreads command is issued in sequential mode.
+Command is ignored.
+Checking overlaps for volume physEnveloppeGDML:0 (G4Box) ... OK! 
+Checking overlaps for volume physScorePlane:0 (G4Box) ... OK! 
+Checking overlaps for volume physScorePlane2:0 (G4Box) ... OK! 
+Checking overlaps for volume physScorePlane3:0 (G4Box) ... OK! 
+
+[GEOM] === Water Rings System ===
+[GEOM] Water front surface z = 65 mm (côté source)
+[GEOM] Water center z = 66.5 mm
+[GEOM] Water back surface z = 68 mm (fond)
+[GEOM] PVC bottom center z = 68.5 mm
+Checking overlaps for volume physPVCBottom:0 (G4Tubs) ... OK! 
+Checking overlaps for volume physPVCWall:0 (G4Tubs) ... OK! 
+Checking overlaps for volume physWaterRing0:0 (G4Tubs) ... OK! 
+[GEOM] Water Ring 0: r = [0, 2] mm
+Checking overlaps for volume physWaterRing1:0 (G4Tubs) ... OK! 
+[GEOM] Water Ring 1: r = [2, 4] mm
+Checking overlaps for volume physWaterRing2:0 (G4Tubs) ... OK! 
+[GEOM] Water Ring 2: r = [4, 6] mm
+Checking overlaps for volume physWaterRing3:0 (G4Tubs) ... OK! 
+[GEOM] Water Ring 3: r = [6, 8] mm
+Checking overlaps for volume physWaterRing4:0 (G4Tubs) ... OK! 
+[GEOM] Water Ring 4: r = [8, 10] mm
+[GEOM] === End Water Rings System ===
+Checking overlaps for volume physScorePlane5:0 (G4Box) ... OK! 
+G4GDML: Reading 'MiniX-EnveloppeTubeX-StainlessSteel304.gdml'...
+G4GDML: Reading materials...
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-EnveloppeTubeX-StainlessSteel304.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-EnveloppeTubeX-StainlessSteel304:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-CollimateurSubAluminium-Aluminium_4mm.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material Dioxygen
+G4Material WARNING: duplicate name of material Ozone
+G4Material WARNING: duplicate name of material CarbonMonoxide
+G4Material WARNING: duplicate name of material CarbonDioxide
+G4Material WARNING: duplicate name of material Dinitrogen
+G4Material WARNING: duplicate name of material NitricOxide
+G4Material WARNING: duplicate name of material NitrogenDioxide
+G4Material WARNING: duplicate name of material NitrousOxide
+G4Material WARNING: duplicate name of material Methane
+G4Material WARNING: duplicate name of material Diiodine
+G4Material WARNING: duplicate name of material StainlessSteel304
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-CollimateurSubAluminium-Aluminium_4mm.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume CollimateurAluminium-Aluminium:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-CollimateurSubLaiton-Brass_4mm.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material Helium
+G4Material WARNING: duplicate name of material Beryllium
+G4Material WARNING: duplicate name of material Neon
+G4Material WARNING: duplicate name of material Argon
+G4Material WARNING: duplicate name of material Krypton
+G4Material WARNING: duplicate name of material Xenon
+G4Material WARNING: duplicate name of material Aluminium
+G4Material WARNING: duplicate name of material Silicon
+G4Material WARNING: duplicate name of material Titanium
+G4Material WARNING: duplicate name of material Germanium
+G4Material WARNING: duplicate name of material Nickel
+G4Material WARNING: duplicate name of material Copper
+G4Material WARNING: duplicate name of material Palladium
+G4Material WARNING: duplicate name of material Silver
+G4Material WARNING: duplicate name of material Cadmium
+G4Material WARNING: duplicate name of material Tin
+G4Material WARNING: duplicate name of material Tellurium
+G4Material WARNING: duplicate name of material Tungsten
+G4Material WARNING: duplicate name of material Platinum
+G4Material WARNING: duplicate name of material Gold
+G4Material WARNING: duplicate name of material Lead
+G4Material WARNING: duplicate name of material Bismuth
+G4Material WARNING: duplicate name of material Europium
+G4Material WARNING: duplicate name of material Americium
+G4Material WARNING: duplicate name of material Dihydrogen
+G4Material WARNING: duplicate name of material Dioxygen
+G4Material WARNING: duplicate name of material Ozone
+G4Material WARNING: duplicate name of material Water
+G4Material WARNING: duplicate name of material CarbonMonoxide
+G4Material WARNING: duplicate name of material CarbonDioxide
+G4Material WARNING: duplicate name of material Dinitrogen
+G4Material WARNING: duplicate name of material NitricOxide
+G4Material WARNING: duplicate name of material NitrogenDioxide
+G4Material WARNING: duplicate name of material NitrousOxide
+G4Material WARNING: duplicate name of material Methane
+G4Material WARNING: duplicate name of material Diiodine
+G4Material WARNING: duplicate name of material Air
+G4Material WARNING: duplicate name of material Vacuum
+G4Material WARNING: duplicate name of material Kapton
+G4Material WARNING: duplicate name of material SiliconOxide
+G4Material WARNING: duplicate name of material DialuminiumTrioxide
+G4Material WARNING: duplicate name of material IronOxide
+G4Material WARNING: duplicate name of material CalciumOxide
+G4Material WARNING: duplicate name of material MagnesiumOxide
+G4Material WARNING: duplicate name of material SodiumOxide
+G4Material WARNING: duplicate name of material TitaniumOxide
+G4Material WARNING: duplicate name of material GlassFibre
+G4Material WARNING: duplicate name of material CarbonFibre
+G4Material WARNING: duplicate name of material EpoxyResin
+G4Material WARNING: duplicate name of material EpoxyGlass
+G4Material WARNING: duplicate name of material EpoxyCarbon
+G4Material WARNING: duplicate name of material DimethylsiloxaneHydroxyTerminated
+G4Material WARNING: duplicate name of material TrimethylatedSilica
+G4Material WARNING: duplicate name of material MethylTrimethoxysilane
+G4Material WARNING: duplicate name of material DowCorning3140
+G4Material WARNING: duplicate name of material SteelQ235
+G4Material WARNING: duplicate name of material StainlessSteel304
+G4Material WARNING: duplicate name of material StainlessSteel304L
+G4Material WARNING: duplicate name of material StainlessSteel316
+G4Material WARNING: duplicate name of material StainlessSteel316L
+G4Material WARNING: duplicate name of material Aluminium5052
+G4Material WARNING: duplicate name of material Aluminium6060
+G4Material WARNING: duplicate name of material Aluminium6061
+G4Material WARNING: duplicate name of material Aluminium6082
+G4Material WARNING: duplicate name of material Aluminium7075
+G4Material WARNING: duplicate name of material Aluminium7175
+G4Material WARNING: duplicate name of material Brass
+G4Material WARNING: duplicate name of material CadmiumTelluride
+G4Material WARNING: duplicate name of material Polystyrene
+G4Material WARNING: duplicate name of material PET
+G4Material WARNING: duplicate name of material PETGlycol
+G4Material WARNING: duplicate name of material PETGlycolTungsten
+G4Material WARNING: duplicate name of material PMMA
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-CollimateurSubLaiton-Brass_4mm.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume CollimateurLaiton-Brass:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-PorteCollimateur-StainlessSteel304.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material StainlessSteel304
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-PorteCollimateur-StainlessSteel304.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-PorteCollimateur-StainlessSteel304:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-TubeXAlumine-DialuminiumTrioxide.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material DialuminiumTrioxide
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-TubeXAlumine-DialuminiumTrioxide.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-TubeXAlumine-DialuminiumTrioxide:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-TubeXAnodeTungsten-Tungsten.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material Tungsten
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-TubeXAnodeTungsten-Tungsten.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-TubeXAnodeTungsten-Tungsten:0 (G4TessellatedSolid) ... OK! 
+
+========== SOURCE VOLUMIQUE : ANODE TUNGSTÈNE ==========
+Volume logique : MiniX-TubeXAnodeTungsten-Tungsten
+Matériau       : Tungsten
+Bounding box   :
+  X : [-3.5, 3.5] mm
+  Y : [-3.5, 3.5] mm
+  Z : [-0.001, 0] mm
+========================================================
+
+G4GDML: Reading 'MiniX-TubeXContenuVideAnode_FenetreSortie-Vacuum.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material Helium
+G4Material WARNING: duplicate name of material Neon
+G4Material WARNING: duplicate name of material Argon
+G4Material WARNING: duplicate name of material Krypton
+G4Material WARNING: duplicate name of material Xenon
+G4Material WARNING: duplicate name of material Dihydrogen
+G4Material WARNING: duplicate name of material Water
+G4Material WARNING: duplicate name of material Vacuum
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-TubeXContenuVideAnode_FenetreSortie-Vacuum.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-TubeXContenuVideAnode_FenetreSortie-Vacuum:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-TubeXContenuVideCathode_Anode-Vacuum.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material Helium
+G4Material WARNING: duplicate name of material Neon
+G4Material WARNING: duplicate name of material Argon
+G4Material WARNING: duplicate name of material Krypton
+G4Material WARNING: duplicate name of material Xenon
+G4Material WARNING: duplicate name of material Dihydrogen
+G4Material WARNING: duplicate name of material Water
+G4Material WARNING: duplicate name of material Vacuum
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-TubeXContenuVideCathode_Anode-Vacuum.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-TubeXContenuVideCathode_Anode-Vacuum:0 (G4TessellatedSolid) ... OK! 
+G4GDML: Reading 'MiniX-TubeXFenetreBeryllium-Beryllium.gdml'...
+G4GDML: Reading materials...
+G4Material WARNING: duplicate name of material Beryllium
+G4GDML: Reading definitions...
+G4GDML: Reading solids...
+G4GDML: Reading structure...
+G4GDML: Reading 'MiniX-TubeXFenetreBeryllium-Beryllium.gdml' done!
+Stripping off GDML names of materials, solids and volumes ...
+Checking overlaps for volume MiniX-TubeXFenetreBeryllium-Beryllium:0 (G4TessellatedSolid) ... OK! 
+[DetectorConstruction] Cuts appliqués : 1 µm pour gamma, e-, e+, proton
+Construction GDML
+
+=== Volumes logiques et matériaux associés ===
+ - logicWorld : MyAir
+ - logicEnveloppeGDML : MyAir
+ - logicScorePlane : MyAir
+ - logicScorePlane2 : MyAir
+ - logicScorePlane3 : MyAir
+ - logicPVCBottom : G4_POLYVINYL_CHLORIDE
+ - logicPVCWall : G4_POLYVINYL_CHLORIDE
+ - logicWaterRing0 : H2O
+ - logicWaterRing1 : H2O
+ - logicWaterRing2 : H2O
+ - logicWaterRing3 : H2O
+ - logicWaterRing4 : H2O
+ - logicScorePlane5 : MyAir
+ - MiniX-EnveloppeTubeX-StainlessSteel304 : StainlessSteel304
+ - CollimateurAluminium-Aluminium : Aluminium
+ - CollimateurLaiton-Brass : Brass
+ - MiniX-PorteCollimateur-StainlessSteel304 : StainlessSteel304
+ - MiniX-TubeXAlumine-DialuminiumTrioxide : DialuminiumTrioxide
+ - MiniX-TubeXAnodeTungsten-Tungsten : Tungsten
+ - MiniX-TubeXContenuVideAnode_FenetreSortie-Vacuum : Vacuum
+ - MiniX-TubeXContenuVideCathode_Anode-Vacuum : Vacuum
+ - MiniX-TubeXFenetreBeryllium-Beryllium : Beryllium
+
+=== Matériaux utilisés dans la géométrie ===
+ • H2O | densité = 1 g/cm3 | N composants = 2
+    → H (0.111898)
+    → O (0.888102)
+ • MyAir | densité = 0.001225 g/cm3 | N composants = 10
+    → N (0.780458)
+    → O (0.210023)
+    → Ar (0.00933543)
+    → C (0.000113888)
+    → Ne (1.81711e-05)
+    → He (5.23744e-06)
+    → H (4.57728e-05)
+    → Kr (1.13944e-07)
+    → Xe (8.9956e-09)
+    → I (9.99511e-10)
+ • G4_POLYVINYL_CHLORIDE | densité = 1.3 g/cm3 | N composants = 3
+    → C (0.384357)
+    → H (0.0483828)
+    → Cl (0.567261)
+ • Beryllium | densité = 1.848 g/cm3 | N composants = 1
+    → beryllium (1)
+ • Aluminium | densité = 2.7 g/cm3 | N composants = 1
+    → aluminium (1)
+ • Tungsten | densité = 19.35 g/cm3 | N composants = 1
+    → tungsten (1)
+ • StainlessSteel304 | densité = 8.03 g/cm3 | N composants = 9
+    → iron (0.67995)
+    → chromium (0.19)
+    → nickel (0.1)
+    → manganese (0.02)
+    → silicon (0.0075)
+    → nitrogen (0.001)
+    → carbon (0.0008)
+    → phosphorus (0.00045)
+    → sulphur (0.0003)
+ • Vacuum | densité = 1.612e-12 g/cm3 | N composants = 12
+    → N (0.780458)
+    → O (0.209661)
+    → argon (0.00933543)
+    → C (0.000113888)
+    → neon (1.81711e-05)
+    → helium (5.23744e-06)
+    → H (4.38335e-08)
+    → krypton (1.13944e-07)
+    → hydrogen (4.57284e-05)
+    → xenon (8.9956e-09)
+    → I (9.99511e-10)
+    → oxygen (0.0003625)
+ • DialuminiumTrioxide | densité = 3.97 g/cm3 | N composants = 2
+    → aluminium (0.529257)
+    → oxygen (0.470743)
+ • Brass | densité = 8.73 g/cm3 | N composants = 2
+    → copper (0.61)
+    → zinc (0.39)
+=============================================
+
+
+=== Liste des volumes logiques et leurs matériaux ===
+ - logicWorld : MyAir
+ - logicEnveloppeGDML : MyAir
+ - logicScorePlane : MyAir
+ - logicScorePlane2 : MyAir
+ - logicScorePlane3 : MyAir
+ - logicPVCBottom : G4_POLYVINYL_CHLORIDE
+ - logicPVCWall : G4_POLYVINYL_CHLORIDE
+ - logicWaterRing0 : H2O
+ - logicWaterRing1 : H2O
+ - logicWaterRing2 : H2O
+ - logicWaterRing3 : H2O
+ - logicWaterRing4 : H2O
+ - logicScorePlane5 : MyAir
+ - MiniX-EnveloppeTubeX-StainlessSteel304 : StainlessSteel304
+ - CollimateurAluminium-Aluminium : Aluminium
+ - CollimateurLaiton-Brass : Brass
+ - MiniX-PorteCollimateur-StainlessSteel304 : StainlessSteel304
+ - MiniX-TubeXAlumine-DialuminiumTrioxide : DialuminiumTrioxide
+ - MiniX-TubeXAnodeTungsten-Tungsten : Tungsten
+ - MiniX-TubeXContenuVideAnode_FenetreSortie-Vacuum : Vacuum
+ - MiniX-TubeXContenuVideCathode_Anode-Vacuum : Vacuum
+ - MiniX-TubeXFenetreBeryllium-Beryllium : Beryllium
+=====================================================
+
+[DetectorConstruction] Limite de step appliquée à Béryllium : 
+
+[GEOM][ECHO]
+[GEOM] logicScorePlane center z = 6 mm, thickness = 1 µm
+[GEOM] Envelope: z ∈ [-60, +60] mm
+ ************************************* GDML Sensible ***************************************
+[MT-MASTER] [SpecSD] ctor: E=[0,60] keV, nBins=120 onlyOutward=true
+[ANALYSIS] SpecSD ntupleId preset at construction: 0
+[FIX] Attached SpecSD to logicScorePlane  LV@0x64e984054040
+[DEBUG] logicScorePlane SD = SpecSD
+[ScorePlane2SD] Created
+[ANALYSIS] ScorePlane2SD ntupleId preset at construction: 1
+[SD] Attached ScorePlane2SD to logicScorePlane2
+[ScorePlane3SD] Created
+[ANALYSIS] ScorePlane3SD ntupleId preset at construction: 2
+[SD] Attached ScorePlane3SD to logicScorePlane3
+[ScorePlane4SD] Created (WaterRings)
+[ANALYSIS] ScorePlane4SD (WaterRings) ntupleId preset at construction: 3
+[SD] Attached ScorePlane4SD to logicWaterRing0
+[SD] Attached ScorePlane4SD to logicWaterRing1
+[SD] Attached ScorePlane4SD to logicWaterRing2
+[SD] Attached ScorePlane4SD to logicWaterRing3
+[SD] Attached ScorePlane4SD to logicWaterRing4
+[SD] Total water rings with ScorePlane4SD attached: 5/5
+[ScorePlane5SD] Created
+[ANALYSIS] ScorePlane5SD ntupleId preset at construction: 4
+[SD] Attached ScorePlane5SD to logicScorePlane5
+[WARN] LV 'logicScorePlane4' not found - step limit not applied
+[STEP] Max step in logicScorePlane5 = 0.1 mm
+
+ hInelastic FTFP_BERT : threshold between BERT and FTFP is over the interval 
+ for pions :   3 to 6 GeV
+ for kaons :   3 to 6 GeV
+ for proton :  3 to 6 GeV
+ for neutron : 3 to 6 GeV
+
+### Adding tracking cuts for neutron  TimeCut(ns)= 10000  KinEnergyCut(MeV)= 0
+=======================================================================
+======                 Electromagnetic Physics Parameters      ========
+=======================================================================
+LPM effect enabled                                 1
+Enable creation and use of sampling tables         0
+Apply cuts on all EM processes                     0
+Use combined TransportationWithMsc                 Disabled
+Use general process                                1
+Enable linear polarisation for gamma               0
+Enable photoeffect sampling below K-shell          1
+Enable sampling of quantum entanglement            0
+X-section factor for integral approach             0.8
+Min kinetic energy for tables                      100 eV 
+Max kinetic energy for tables                      100 TeV
+Number of bins per decade of a table               7
+Verbose level                                      1
+Verbose level for worker thread                    0
+Bremsstrahlung energy threshold above which 
+  primary e+- is added to the list of secondary    100 TeV
+Bremsstrahlung energy threshold above which primary
+  muon/hadron is added to the list of secondary    100 TeV
+Positron annihilation at rest model                SimplePositronium
+Enable 3 gamma annihilation on fly                 0
+Lowest triplet kinetic energy                      1 MeV
+Enable sampling of gamma linear polarisation       0
+5D gamma conversion model type                     0
+5D gamma conversion model on isolated ion          0
+Use Ricardo-Gerardo pair production model          0
+Livermore data directory                           epics_2017
+=======================================================================
+======                 Ionisation Parameters                   ========
+=======================================================================
+Step function for e+-                              (0.2, 1 mm)
+Step function for muons/hadrons                    (0.2, 0.1 mm)
+Step function for light ions                       (0.2, 0.1 mm)
+Step function for general ions                     (0.2, 0.1 mm)
+Lowest e+e- kinetic energy                         1 keV
+Lowest muon/hadron kinetic energy                  1 keV
+Use ICRU90 data                                    0
+Fluctuations of dE/dx are enabled                  1
+Type of fluctuation model for leptons and hadrons  Urban
+Use built-in Birks satuaration                     0
+Build CSDA range enabled                           0
+Use cut as a final range enabled                   0
+Enable angular generator interface                 0
+Max kinetic energy for CSDA tables                 1 GeV
+Max kinetic energy for NIEL computation            0 eV 
+Linear loss limit                                  0.01
+Read data from file for e+e- pair production by mu 0
+=======================================================================
+======                 Multiple Scattering Parameters          ========
+=======================================================================
+Type of msc step limit algorithm for e+-           1
+Type of msc step limit algorithm for muons/hadrons 0
+Msc lateral displacement for e+- enabled           1
+Msc lateral displacement for muons and hadrons     0
+Urban msc model lateral displacement alg96         1
+Range factor for msc step limit for e+-            0.04
+Range factor for msc step limit for muons/hadrons  0.2
+Geometry factor for msc step limitation of e+-     2.5
+Safety factor for msc step limit for e+-           0.6
+Skin parameter for msc step limitation of e+-      1
+Lambda limit for msc step limit for e+-            1 mm
+Use Mott correction for e- scattering              0
+Factor used for dynamic computation of angular 
+  limit between single and multiple scattering     1
+Fixed angular limit between single 
+  and multiple scattering                          3.1416 rad
+Upper energy limit for e+- multiple scattering     100 MeV
+Type of electron single scattering model           0
+Type of nuclear form-factor                        1
+Screening factor                                   1
+=======================================================================
+
+phot:  for gamma SubType=12 BuildTable=0
+      LambdaPrime table from 200 keV to 100 TeV in 61 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermorePhElectric : Emin=    0 eV  Emax=  100 TeV  SauterGavrila Fluo
+
+compt:  for gamma SubType=13 BuildTable=1
+      Lambda table from 100 eV  to 1 MeV, 7 bins/decade, spline: 1
+      LambdaPrime table from 1 MeV to 100 TeV in 56 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina : Emin=    0 eV  Emax=  100 TeV
+
+conv:  for gamma SubType=14 BuildTable=1
+      Lambda table from 1.022 MeV to 100 TeV, 18 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+     BetheHeitlerLPM : Emin=    0 eV  Emax=  100 TeV  ModifiedTsai
+
+Rayl:  for gamma SubType=11 BuildTable=1
+      Lambda table from 100 eV  to 150 keV, 7 bins/decade, spline: 0
+      LambdaPrime table from 150 keV to 100 TeV in 62 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   LivermoreRayleigh : Emin=    0 eV  Emax=  100 TeV  CullenGenerator
+
+msc:  for e-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+
+eIoni:  for e-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e-  XStype:4  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+CoulombScat:  for e- XStype:1 SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for e+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+          StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llim=1 mm
+
+eIoni:  for e+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e+  XStype:4  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+annihil:  for e+ XStype:2 SubType=5 AtRestModel:Simple BuildTable=0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for e+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for proton  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for proton  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for proton  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for proton XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for GenericIon  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+ionIoni:  for GenericIon  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+msc:  for alpha  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+ionIoni:  for alpha  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
+          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
+
+msc:  for anti_proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for anti_proton  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for anti_proton  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for anti_proton  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for anti_proton XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for kaon+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon+  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon+  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for kaon-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon-  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon-  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon- XStype:1 SubType=1 BuildTable=1
+      Used Lambda table of kaon+
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+muIoni:  for mu+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=  200 keV
+        MuBetheBloch : Emin=  200 keV Emax=  100 TeV
+
+muBrems:  for mu+  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu+  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 0.85 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+muIoni:  for mu-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=  200 keV
+        MuBetheBloch : Emin=  200 keV Emax=  100 TeV
+
+muBrems:  for mu-  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu-  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 0.85 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu- XStype:1 SubType=1 BuildTable=1
+      Used Lambda table of mu+
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for pi+  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi+  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi+  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi+ XStype:1 SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 0
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+          StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llim=1 mm
+
+hIoni:  for pi-  XStype:3  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 3, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi-  XStype:1  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi-  XStype:1  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi- XStype:1 SubType=1 BuildTable=1
+      Used Lambda table of pi+
+      ThetaMin(p) < Theta(degree) < 180, pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+-----------------------------------------------------------------------
+                           Hadronic Processes for neutron
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronElasticXS: 0 eV  ---> 100 TeV
+  Process: neutronInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 eV  ---> 100 TeV
+  Process: nCapture
+        Model:               nRadCapture: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 eV  ---> 100 TeV
+  Process: nKiller
+-----------------------------------------------------------------------
+                           Hadronic Processes for B-
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: B-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for D-
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: D-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for GenericIon
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for He3
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for alpha
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_He3
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_alpha
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-------------------------------------------------------------------------
+                           Hadronic Processes for anti_hypertriton
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_lambda
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: anti_lambdaInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_neutron
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_proton
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for anti_triton
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+  Process: hFritiofCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for deuteron
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for e+
+  Process: positronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for e-
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for gamma
+  Process: photonNuclear
+        Model:               GammaNPreco: 0 eV  ---> 200 MeV
+        Model:            BertiniCascade: 199 MeV ---> 6 GeV
+        Model:           TheoFSGenerator: 3 GeV ---> 100 TeV
+     Cr_sctns:            GammaNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for kaon+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: kaon+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for kaon-
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: kaon-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: hBertiniCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for lambda
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: lambdaInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for mu+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for mu-
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+  Process: muMinusCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for pi+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: pi+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for pi-
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: pi-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: hBertiniCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for proton
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+  Process: protonInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+-----------------------------------------------------------------------
+                           Hadronic Processes for sigma-
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: sigma-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+  Process: hBertiniCaptureAtRest
+-----------------------------------------------------------------------
+                           Hadronic Processes for triton
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+=======================================================================
+======       Geant4 Native Pre-compound Model Parameters       ========
+=======================================================================
+Type of pre-compound inverse x-section              1
+Pre-compound model active                           1
+Pre-compound excitation low energy                  100 keV
+Pre-compound excitation high energy                 30 MeV
+Angular generator for pre-compound model            1
+Use NeverGoBack option for pre-compound model       0
+Use SoftCutOff option for pre-compound model        0
+Use CEM transitions for pre-compound model          1
+Use GNASH transitions for pre-compound model        0
+Use HETC submodel for pre-compound model            0
+=======================================================================
+======       Nuclear De-excitation Module Parameters           ========
+=======================================================================
+Type of de-excitation inverse x-section             3
+Type of de-excitation factory                       Evaporation+GEM
+Number of de-excitation channels                    68
+Min excitation energy                               10 eV 
+Min energy per nucleon for multifragmentation       200 GeV
+Limit excitation energy for Fermi BreakUp           20 MeV
+Level density (1/MeV)                               0.075
+Use simple level density model                      1
+Use discrete excitation energy of the residual      0
+Time limit for long lived isomeres                  1 ns 
+Isomer production flag                              1
+Internal e- conversion flag                         1
+Store e- internal conversion data                   1
+Correlated gamma emission flag                      0
+Max 2J for sampling of angular correlations         10
+=======================================================================
+
+========================================================================================================
+                         SUIVI STEP PAR STEP DES 10 PREMIERS EVENEMENTS
+========================================================================================================
+ Evt  Trk Stp    Part Sec Ekin(keV)  PreVolume                             PrePos(mm)  PostVolume                           PostPos(mm)
+------------------------------------------------------------------------------------------------------------------------------------------
+... set ntuple merging row mode : row-wise - done
+... create file : output.root - done
+... open analysis file : output.root - done
+... open analysis file : output.root - done
+[RUN] SpecSD wired to plane_passages ntuple id = 0
+
+>>> Evenement #0 (total suivi: 1/10) <<<
+
+   0    1   1   gamma   0     3.948  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..         (0.07,-0.03,0.05)
+   0    1   2   gamma   0     3.948  MiniX-TubeXFenetre..         (0.07,-0.03,0.05)  MiniX-TubeXFenetre..         (0.11,-0.05,0.07)
+   0    2   1      e-   1     3.833  MiniX-TubeXFenetre..         (0.11,-0.05,0.07)  MiniX-TubeXFenetre..         (0.11,-0.05,0.07)
+
+>>> Evenement #1 (total suivi: 2/10) <<<
+
+   1    1   1   gamma   0    19.002  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..          (0.01,0.07,0.05)
+   1    1   2   gamma   0    19.002  MiniX-TubeXFenetre..          (0.01,0.07,0.05)  physEnveloppeGDML             (0.05,0.26,0.17)
+   1    1   3   gamma   0    19.002  physEnveloppeGDML             (0.05,0.26,0.17)  CollimateurAlumini..          (0.38,1.96,1.32)
+   1    1   4   gamma   0    19.002  CollimateurAlumini..          (0.38,1.96,1.32)  CollimateurLaiton-..          (0.39,1.99,1.34)
+   1    1   5   gamma   0    19.002  CollimateurLaiton-..          (0.39,1.99,1.34)  CollimateurLaiton-..          (0.40,2.01,1.35)
+   1    2   1      e-   1    10.016  CollimateurLaiton-..          (0.40,2.01,1.35)  CollimateurLaiton-..          (0.40,2.01,1.35)
+
+>>> Evenement #2 (total suivi: 3/10) <<<
+
+   2    1   1   gamma   0     5.567  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..        (-0.03,-0.05,0.05)
+   2    1   2   gamma   0     5.567  MiniX-TubeXFenetre..        (-0.03,-0.05,0.05)  physEnveloppeGDML           (-0.09,-0.19,0.17)
+   2    1   3   gamma   0     5.567  physEnveloppeGDML           (-0.09,-0.19,0.17)  CollimateurAlumini..        (-0.83,-1.82,1.63)
+   2    1   4   gamma   0     5.567  CollimateurAlumini..        (-0.83,-1.82,1.63)  CollimateurLaiton-..        (-0.84,-1.84,1.65)
+   2    1   5   gamma   0     5.567  CollimateurLaiton-..        (-0.84,-1.84,1.65)  CollimateurLaiton-..        (-0.84,-1.84,1.65)
+   2    2   1      e-   1     4.464  CollimateurLaiton-..        (-0.84,-1.84,1.65)  CollimateurLaiton-..        (-0.84,-1.84,1.65)
+
+>>> Evenement #3 (total suivi: 4/10) <<<
+
+   3    1   1   gamma   0    10.837  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..         (0.08,-0.02,0.05)
+   3    1   2   gamma   0    10.837  MiniX-TubeXFenetre..         (0.08,-0.02,0.05)  physEnveloppeGDML            (0.28,-0.08,0.17)
+   3    1   3   gamma   0    10.837  physEnveloppeGDML            (0.28,-0.08,0.17)  CollimateurAlumini..         (1.92,-0.57,1.19)
+   3    1   4   gamma   0    10.837  CollimateurAlumini..         (1.92,-0.57,1.19)  CollimateurLaiton-..         (1.94,-0.58,1.21)
+   3    1   5   gamma   0    10.837  CollimateurLaiton-..         (1.94,-0.58,1.21)  CollimateurLaiton-..         (1.94,-0.58,1.21)
+   3    2   1      e-   1     1.851  CollimateurLaiton-..         (1.94,-0.58,1.21)  CollimateurLaiton-..         (1.94,-0.58,1.21)
+
+>>> Evenement #4 (total suivi: 5/10) <<<
+
+   4    1   1   gamma   0    12.038  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..         (0.04,-0.03,0.05)
+   4    1   2   gamma   0    12.038  MiniX-TubeXFenetre..         (0.04,-0.03,0.05)  physEnveloppeGDML            (0.13,-0.11,0.17)
+   4    1   3   gamma   0    12.038  physEnveloppeGDML            (0.13,-0.11,0.17)  CollimateurAlumini..         (1.55,-1.26,2.07)
+   4    1   4   gamma   0    12.038  CollimateurAlumini..         (1.55,-1.26,2.07)  CollimateurLaiton-..         (1.57,-1.28,2.10)
+   4    1   5   gamma   0    12.038  CollimateurLaiton-..         (1.57,-1.28,2.10)  CollimateurLaiton-..         (1.57,-1.28,2.10)
+   4    2   1      e-   1     3.052  CollimateurLaiton-..         (1.57,-1.28,2.10)  CollimateurLaiton-..         (1.57,-1.28,2.10)
+
+>>> Evenement #5 (total suivi: 6/10) <<<
+
+   5    1   1   gamma   0    10.594  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..         (0.02,-0.01,0.05)
+   5    1   2   gamma   0    10.594  MiniX-TubeXFenetre..         (0.02,-0.01,0.05)  physEnveloppeGDML            (0.09,-0.04,0.17)
+   5    1   3   gamma   0    10.594  physEnveloppeGDML            (0.09,-0.04,0.17)  CollimateurAlumini..         (1.81,-0.84,3.63)
+   5    1   4   gamma   0    10.594  CollimateurAlumini..         (1.81,-0.84,3.63)  CollimateurLaiton-..         (1.84,-0.85,3.68)
+   5    1   5   gamma   0    10.594  CollimateurLaiton-..         (1.84,-0.85,3.68)  CollimateurLaiton-..         (1.84,-0.85,3.68)
+   5    2   1      e-   1     0.931  CollimateurLaiton-..         (1.84,-0.85,3.68)  CollimateurLaiton-..         (1.84,-0.85,3.68)
+
+>>> Evenement #6 (total suivi: 7/10) <<<
+
+   6    1   1   gamma   0    26.139  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..        (-0.07,-0.03,0.05)
+   6    1   2   gamma   0    26.139  MiniX-TubeXFenetre..        (-0.07,-0.03,0.05)  physEnveloppeGDML           (-0.24,-0.11,0.17)
+   6    1   3   gamma   0    26.139  physEnveloppeGDML           (-0.24,-0.11,0.17)  CollimateurAlumini..        (-1.83,-0.80,1.31)
+   6    1   4   gamma   0    26.139  CollimateurAlumini..        (-1.83,-0.80,1.31)  CollimateurLaiton-..        (-1.86,-0.81,1.32)
+   6    1   5   gamma   0    26.139  CollimateurLaiton-..        (-1.86,-0.81,1.32)  CollimateurLaiton-..        (-1.87,-0.81,1.33)
+   6    2   1      e-   1    17.153  CollimateurLaiton-..        (-1.87,-0.81,1.33)  CollimateurLaiton-..        (-1.87,-0.81,1.33)
+
+>>> Evenement #7 (total suivi: 8/10) <<<
+
+   7    1   1   gamma   0     3.917  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..          (0.05,0.03,0.05)
+   7    1   2   gamma   0     3.917  MiniX-TubeXFenetre..          (0.05,0.03,0.05)  physEnveloppeGDML             (0.17,0.10,0.17)
+   7    1   3   gamma   0     3.917  physEnveloppeGDML             (0.17,0.10,0.17)  CollimateurAlumini..          (1.74,0.98,1.78)
+   7    1   4   gamma   0     3.917  CollimateurAlumini..          (1.74,0.98,1.78)  CollimateurAlumini..          (1.75,0.99,1.79)
+   7    2   1      e-   1     2.353  CollimateurAlumini..          (1.75,0.99,1.79)  CollimateurAlumini..          (1.75,0.99,1.79)
+
+>>> Evenement #8 (total suivi: 9/10) <<<
+
+   8    1   1   gamma   0     5.760  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..         (0.07,-0.04,0.05)
+   8    1   2   gamma   0     5.760  MiniX-TubeXFenetre..         (0.07,-0.04,0.05)  physEnveloppeGDML            (0.25,-0.15,0.17)
+   8    1   3   gamma   0     5.760  physEnveloppeGDML            (0.25,-0.15,0.17)  CollimateurAlumini..         (1.71,-1.04,1.19)
+   8    1   4   gamma   0     5.760  CollimateurAlumini..         (1.71,-1.04,1.19)  CollimateurAlumini..         (1.72,-1.05,1.20)
+   8    2   1      e-   1     4.196  CollimateurAlumini..         (1.72,-1.05,1.20)  CollimateurAlumini..         (1.72,-1.05,1.20)
+
+>>> Evenement #9 (total suivi: 10/10) <<<
+
+   9    1   1   gamma   0     5.387  MiniX-TubeXContenu..          (0.00,0.00,0.00)  MiniX-TubeXFenetre..         (-0.02,0.01,0.05)
+   9    1   2   gamma   0     5.387  MiniX-TubeXFenetre..         (-0.02,0.01,0.05)  physEnveloppeGDML            (-0.08,0.05,0.17)
+   9    1   3   gamma   0     5.387  physEnveloppeGDML            (-0.08,0.05,0.17)  CollimateurAlumini..         (-1.71,1.03,3.76)
+   9    1   4   gamma   0     5.387  CollimateurAlumini..         (-1.71,1.03,3.76)  CollimateurAlumini..         (-1.72,1.03,3.76)
+   9    2   1      e-   1     3.823  CollimateurAlumini..         (-1.72,1.03,3.76)  CollimateurAlumini..         (-1.72,1.03,3.76)
+[TRACE][PLANE ENTER] evt=23 zPre=0.175 zPost=18.000 mm
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.133,-0.272,18.000) mm postPos=(-0.133,-0.272,18.000) mm dirZ=1.000 onlyOutward=true ntupleId=0
+[plane_passages][fill#1] pdg=22 x=-0.133 y=-0.272 E=4.020 keV
+[TRACE][PLANE LEAVE] evt=23 zPre=18.000 zPost=18.000 mm
+[TRACE][Z=60] evt=23 preZ=38.500 postZ=60.000 mm
+[TRACE][Z=60] evt=23 preZ=60.000 postZ=65.000 mm
+[TRACE][PLANE ENTER] evt=44 zPre=16.450 zPost=18.000 mm
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.266,-1.795,18.000) mm postPos=(-1.266,-1.795,18.000) mm dirZ=0.993 onlyOutward=true ntupleId=0
+[plane_passages][fill#2] pdg=22 x=-1.266 y=-1.795 E=18.201 keV
+[TRACE][PLANE LEAVE] evt=44 zPre=18.000 zPost=18.000 mm
+[TRACE][Z=60] evt=44 preZ=38.500 postZ=60.000 mm
+[TRACE][Z=60] evt=44 preZ=60.000 postZ=65.000 mm
+[TRACE][PLANE ENTER] evt=267 zPre=0.175 zPost=17.999 mm
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.953,-0.839,17.999) mm postPos=(-0.953,-0.839,18.000) mm dirZ=0.998 onlyOutward=true ntupleId=0
+[plane_passages][fill#3] pdg=22 x=-0.953 y=-0.839 E=39.998 keV
+[TRACE][Z=60] evt=267 preZ=38.500 postZ=60.000 mm
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.799,1.670,18.000) mm postPos=(0.799,1.670,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.471,-1.222,18.000) mm postPos=(-1.471,-1.222,18.000) mm dirZ=0.994 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.104,2.006,18.000) mm postPos=(0.104,2.006,18.000) mm dirZ=0.994 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(1.632,-0.276,18.000) mm postPos=(1.632,-0.276,18.000) mm dirZ=0.996 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.354,0.199,18.000) mm postPos=(0.354,0.199,18.000) mm dirZ=1.000 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.505,0.041,18.000) mm postPos=(0.505,0.041,18.000) mm dirZ=1.000 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.631,1.646,18.000) mm postPos=(-0.631,1.646,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.587,-0.462,18.000) mm postPos=(-0.587,-0.462,18.000) mm dirZ=0.999 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(1.467,1.572,18.000) mm postPos=(1.467,1.572,18.000) mm dirZ=0.993 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.099,-0.851,18.000) mm postPos=(-1.100,-0.851,18.000) mm dirZ=0.997 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.760,0.501,18.000) mm postPos=(-1.760,0.501,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.871,1.034,18.000) mm postPos=(-0.872,1.035,18.000) mm dirZ=0.997 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(1.941,-0.146,18.000) mm postPos=(1.941,-0.146,18.000) mm dirZ=0.994 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.529,-1.793,18.000) mm postPos=(0.529,-1.793,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.103,1.534,18.000) mm postPos=(-0.103,1.535,18.000) mm dirZ=0.996 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.315,0.170,18.000) mm postPos=(-0.315,0.170,18.000) mm dirZ=1.000 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.967,-1.060,18.000) mm postPos=(0.967,-1.060,18.000) mm dirZ=0.997 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.776,-0.996,18.000) mm postPos=(-1.776,-0.997,18.000) mm dirZ=0.994 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.501,0.877,18.000) mm postPos=(-1.501,0.877,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(1.114,-1.376,18.000) mm postPos=(1.114,-1.376,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.743,1.544,18.000) mm postPos=(-0.743,1.544,18.000) mm dirZ=0.996 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(1.394,1.439,18.000) mm postPos=(1.394,1.439,18.000) mm dirZ=0.994 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(0.280,-0.298,18.000) mm postPos=(0.280,-0.298,18.000) mm dirZ=1.000 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.893,-0.040,17.999) mm postPos=(-1.893,-0.040,18.000) mm dirZ=0.995 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-1.358,0.447,18.000) mm postPos=(-1.358,0.447,18.000) mm dirZ=0.997 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.038,0.580,18.000) mm postPos=(-0.038,0.580,18.000) mm dirZ=0.999 onlyOutward=true ntupleId=0
+[SpecSD::ProcessHits] pre=physScorePlane -> post=physEnveloppeGDML prePos=(-0.301,2.052,18.000) mm postPos=(-0.301,2.053,18.000) mm dirZ=0.993 onlyOutward=true ntupleId=0
+[PROGRESS] Event 10000 | Transmitted: 155 | Edep(keV): Tot=784.443 R0=73.069 R1=86.037 R2=230.192 R3=368.461 R4=26.684 | Dose(pGy): Tot=133.337 R0=310.496 R1=121.866 R2=195.633 R3=223.682 R4=12.599
+[SpecSD] REJECT (inward/side) dirZ=-0.910
+[PROGRESS] Event 20000 | Transmitted: 134 | Edep(keV): Tot=547.239 R0=24.338 R1=124.005 R2=134.621 R3=264.276 R4=0.000 | Dose(pGy): Tot=93.018 R0=103.419 R1=175.646 R2=114.410 R3=160.434 R4=0.000
+[PROGRESS] Event 30000 | Transmitted: 128 | Edep(keV): Tot=598.951 R0=62.264 R1=130.908 R2=163.048 R3=226.593 R4=16.137 | Dose(pGy): Tot=101.808 R0=264.581 R1=185.424 R2=138.569 R3=137.558 R4=7.619
+[SpecSD] REJECT (inward/side) dirZ=-0.839
+[SpecSD] REJECT (inward/side) dirZ=-0.978
+[PROGRESS] Event 40000 | Transmitted: 136 | Edep(keV): Tot=633.482 R0=36.493 R1=116.031 R2=205.444 R3=263.162 R4=12.352 | Dose(pGy): Tot=107.677 R0=155.073 R1=164.351 R2=174.600 R3=159.758 R4=5.832
+[PROGRESS] Event 50000 | Transmitted: 134 | Edep(keV): Tot=669.609 R0=26.425 R1=132.733 R2=210.311 R3=285.563 R4=14.578 | Dose(pGy): Tot=113.818 R0=112.287 R1=188.009 R2=178.736 R3=173.357 R4=6.883
+[SpecSD] REJECT (inward/side) dirZ=-0.780
+[SpecSD] REJECT (inward/side) dirZ=-0.707
+[PROGRESS] Event 60000 | Transmitted: 111 | Edep(keV): Tot=556.229 R0=30.585 R1=52.189 R2=167.055 R3=291.775 R4=14.625 | Dose(pGy): Tot=94.546 R0=129.967 R1=73.923 R2=141.974 R3=177.128 R4=6.905
+[PROGRESS] Event 70000 | Transmitted: 111 | Edep(keV): Tot=462.542 R0=0.000 R1=112.507 R2=137.070 R3=191.551 R4=21.414 | Dose(pGy): Tot=78.622 R0=0.000 R1=159.361 R2=116.491 R3=116.285 R4=10.111
+[PROGRESS] Event 80000 | Transmitted: 148 | Edep(keV): Tot=825.017 R0=87.964 R1=148.146 R2=220.136 R3=347.361 R4=21.409 | Dose(pGy): Tot=140.234 R0=373.789 R1=209.841 R2=187.086 R3=210.873 R4=10.109
+[SpecSD] REJECT (inward/side) dirZ=-0.827
+[SpecSD] REJECT (inward/side) dirZ=-0.792
+[PROGRESS] Event 90000 | Transmitted: 136 | Edep(keV): Tot=644.619 R0=12.728 R1=130.671 R2=201.976 R3=287.907 R4=11.338 | Dose(pGy): Tot=109.571 R0=54.085 R1=185.088 R2=171.653 R3=174.780 R4=5.353
+[PROGRESS] Event 100000 | Transmitted: 127 | Edep(keV): Tot=595.989 R0=13.126 R1=83.779 R2=192.818 R3=299.730 R4=6.535 | Dose(pGy): Tot=101.304 R0=55.779 R1=118.669 R2=163.870 R3=181.957 R4=3.086
+[SpecSD] REJECT (inward/side) dirZ=-0.946
+[SpecSD] REJECT (inward/side) dirZ=-0.771
+[PROGRESS] Event 110000 | Transmitted: 141 | Edep(keV): Tot=741.021 R0=0.000 R1=147.850 R2=278.843 R3=295.281 R4=19.047 | Dose(pGy): Tot=125.957 R0=0.000 R1=209.421 R2=236.979 R3=179.257 R4=8.993
+[SpecSD] REJECT (inward/side) dirZ=-0.861
+[PROGRESS] Event 120000 | Transmitted: 138 | Edep(keV): Tot=680.533 R0=18.750 R1=78.351 R2=245.647 R3=328.134 R4=9.650 | Dose(pGy): Tot=115.675 R0=79.676 R1=110.981 R2=208.767 R3=199.201 R4=4.557
+[PROGRESS] Event 130000 | Transmitted: 144 | Edep(keV): Tot=820.674 R0=73.226 R1=105.623 R2=293.969 R3=347.856 R4=0.000 | Dose(pGy): Tot=139.496 R0=311.160 R1=149.610 R2=249.835 R3=211.173 R4=0.000
+[PROGRESS] Event 140000 | Transmitted: 171 | Edep(keV): Tot=758.873 R0=72.697 R1=100.275 R2=159.683 R3=381.801 R4=44.418 | Dose(pGy): Tot=128.991 R0=308.915 R1=142.033 R2=135.709 R3=231.781 R4=20.972
+[PROGRESS] Event 150000 | Transmitted: 142 | Edep(keV): Tot=666.525 R0=36.393 R1=90.126 R2=197.998 R3=284.603 R4=57.406 | Dose(pGy): Tot=113.294 R0=154.646 R1=127.658 R2=168.272 R3=172.774 R4=27.105
+[PROGRESS] Event 160000 | Transmitted: 141 | Edep(keV): Tot=669.947 R0=55.365 R1=110.484 R2=197.474 R3=297.089 R4=9.535 | Dose(pGy): Tot=113.876 R0=235.264 R1=156.495 R2=167.826 R3=180.354 R4=4.502
+[PROGRESS] Event 170000 | Transmitted: 133 | Edep(keV): Tot=609.513 R0=38.926 R1=109.860 R2=210.656 R3=231.452 R4=18.619 | Dose(pGy): Tot=103.603 R0=165.411 R1=155.611 R2=179.030 R3=140.508 R4=8.791
+[PROGRESS] Event 180000 | Transmitted: 124 | Edep(keV): Tot=756.340 R0=46.920 R1=154.672 R2=179.713 R3=341.118 R4=33.917 | Dose(pGy): Tot=128.560 R0=199.378 R1=219.085 R2=152.732 R3=207.083 R4=16.015
+[PROGRESS] Event 190000 | Transmitted: 137 | Edep(keV): Tot=666.297 R0=65.010 R1=158.755 R2=226.846 R3=204.434 R4=11.253 | Dose(pGy): Tot=113.255 R0=276.247 R1=224.868 R2=192.789 R3=124.106 R4=5.313
+[PROGRESS] Event 200000 | Transmitted: 118 | Edep(keV): Tot=601.894 R0=24.184 R1=114.523 R2=171.506 R3=278.058 R4=13.623 | Dose(pGy): Tot=102.308 R0=102.767 R1=162.216 R2=145.757 R3=168.801 R4=6.432
+[PROGRESS] Event 210000 | Transmitted: 171 | Edep(keV): Tot=812.059 R0=31.084 R1=187.673 R2=268.918 R3=317.065 R4=7.320 | Dose(pGy): Tot=138.031 R0=132.086 R1=265.828 R2=228.545 R3=192.481 R4=3.456
+[PROGRESS] Event 220000 | Transmitted: 155 | Edep(keV): Tot=778.387 R0=62.438 R1=135.174 R2=201.048 R3=350.976 R4=28.751 | Dose(pGy): Tot=132.308 R0=265.318 R1=191.467 R2=170.864 R3=213.068 R4=13.575
+[PROGRESS] Event 230000 | Transmitted: 154 | Edep(keV): Tot=765.444 R0=43.982 R1=94.638 R2=259.082 R3=367.741 R4=0.000 | Dose(pGy): Tot=130.108 R0=186.896 R1=134.050 R2=220.185 R3=223.245 R4=0.000
+[PROGRESS] Event 240000 | Transmitted: 113 | Edep(keV): Tot=539.987 R0=23.012 R1=52.572 R2=198.286 R3=254.263 R4=11.855 | Dose(pGy): Tot=91.785 R0=97.784 R1=74.465 R2=168.517 R3=154.356 R4=5.597
+[PROGRESS] Event 250000 | Transmitted: 141 | Edep(keV): Tot=626.234 R0=25.482 R1=111.286 R2=259.089 R3=230.376 R4=0.000 | Dose(pGy): Tot=106.445 R0=108.283 R1=157.631 R2=220.192 R3=139.855 R4=0.000
+[PROGRESS] Event 260000 | Transmitted: 124 | Edep(keV): Tot=424.490 R0=15.874 R1=56.236 R2=123.268 R3=226.291 R4=2.821 | Dose(pGy): Tot=72.154 R0=67.454 R1=79.655 R2=104.761 R3=137.375 R4=1.332
+[PROGRESS] Event 270000 | Transmitted: 142 | Edep(keV): Tot=671.736 R0=0.000 R1=101.838 R2=227.523 R3=324.096 R4=18.278 | Dose(pGy): Tot=114.180 R0=0.000 R1=144.249 R2=193.365 R3=196.749 R4=8.630
+[PROGRESS] Event 280000 | Transmitted: 146 | Edep(keV): Tot=767.956 R0=41.547 R1=103.553 R2=211.088 R3=379.750 R4=32.018 | Dose(pGy): Tot=130.535 R0=176.547 R1=146.677 R2=179.397 R3=230.535 R4=15.118
+[PROGRESS] Event 290000 | Transmitted: 126 | Edep(keV): Tot=538.075 R0=16.920 R1=161.498 R2=185.538 R3=173.687 R4=0.433 | Dose(pGy): Tot=91.460 R0=71.898 R1=228.753 R2=157.683 R3=105.440 R4=0.204
+[PROGRESS] Event 300000 | Transmitted: 149 | Edep(keV): Tot=803.714 R0=60.278 R1=111.412 R2=241.034 R3=311.544 R4=79.447 | Dose(pGy): Tot=136.613 R0=256.140 R1=157.809 R2=204.847 R3=189.129 R4=37.512
+[PROGRESS] Event 310000 | Transmitted: 119 | Edep(keV): Tot=539.668 R0=7.312 R1=91.349 R2=150.351 R3=269.824 R4=20.831 | Dose(pGy): Tot=91.731 R0=31.072 R1=129.391 R2=127.778 R3=163.802 R4=9.836
+[PROGRESS] Event 320000 | Transmitted: 146 | Edep(keV): Tot=686.596 R0=68.070 R1=105.549 R2=192.665 R3=300.429 R4=19.883 | Dose(pGy): Tot=116.706 R0=289.251 R1=149.504 R2=163.740 R3=182.382 R4=9.388
+[PROGRESS] Event 330000 | Transmitted: 143 | Edep(keV): Tot=676.494 R0=33.111 R1=204.506 R2=186.561 R3=224.422 R4=27.893 | Dose(pGy): Tot=114.989 R0=140.701 R1=289.672 R2=158.552 R3=136.240 R4=13.170
+[PROGRESS] Event 340000 | Transmitted: 157 | Edep(keV): Tot=722.494 R0=48.675 R1=171.453 R2=241.918 R3=260.448 R4=0.000 | Dose(pGy): Tot=122.807 R0=206.836 R1=242.854 R2=205.598 R3=158.111 R4=0.000
+[PROGRESS] Event 350000 | Transmitted: 145 | Edep(keV): Tot=798.047 R0=61.654 R1=151.871 R2=283.278 R3=295.346 R4=5.899 | Dose(pGy): Tot=135.650 R0=261.988 R1=215.117 R2=240.748 R3=179.296 R4=2.785
+[PROGRESS] Event 360000 | Transmitted: 126 | Edep(keV): Tot=727.638 R0=30.580 R1=149.227 R2=237.138 R3=288.330 R4=22.363 | Dose(pGy): Tot=123.682 R0=129.944 R1=211.372 R2=201.536 R3=175.037 R4=10.559
+[PROGRESS] Event 370000 | Transmitted: 160 | Edep(keV): Tot=812.956 R0=62.788 R1=118.921 R2=303.967 R3=273.103 R4=54.175 | Dose(pGy): Tot=138.184 R0=266.809 R1=168.446 R2=258.332 R3=165.793 R4=25.579
+[PROGRESS] Event 380000 | Transmitted: 120 | Edep(keV): Tot=479.954 R0=66.807 R1=64.856 R2=203.000 R3=135.916 R4=9.374 | Dose(pGy): Tot=81.581 R0=283.886 R1=91.865 R2=172.523 R3=82.511 R4=4.426
+[PROGRESS] Event 390000 | Transmitted: 157 | Edep(keV): Tot=628.691 R0=38.220 R1=119.917 R2=164.890 R3=292.543 R4=13.121 | Dose(pGy): Tot=106.863 R0=162.410 R1=169.856 R2=140.134 R3=177.594 R4=6.195
+[PROGRESS] Event 400000 | Transmitted: 137 | Edep(keV): Tot=590.201 R0=33.852 R1=76.591 R2=155.260 R3=323.305 R4=1.193 | Dose(pGy): Tot=100.321 R0=143.849 R1=108.487 R2=131.951 R3=196.269 R4=0.563
+[PROGRESS] Event 410000 | Transmitted: 137 | Edep(keV): Tot=679.879 R0=30.800 R1=133.550 R2=202.049 R3=313.479 R4=0.000 | Dose(pGy): Tot=115.564 R0=130.882 R1=189.167 R2=171.715 R3=190.304 R4=0.000
+[PROGRESS] Event 420000 | Transmitted: 115 | Edep(keV): Tot=676.486 R0=13.680 R1=124.740 R2=220.515 R3=276.084 R4=41.468 | Dose(pGy): Tot=114.987 R0=58.131 R1=176.687 R2=187.408 R3=167.602 R4=19.580
+[PROGRESS] Event 430000 | Transmitted: 136 | Edep(keV): Tot=627.101 R0=64.131 R1=110.235 R2=255.880 R3=196.855 R4=0.000 | Dose(pGy): Tot=106.593 R0=272.513 R1=156.142 R2=217.464 R3=119.505 R4=0.000
+[PROGRESS] Event 440000 | Transmitted: 141 | Edep(keV): Tot=662.911 R0=53.465 R1=119.788 R2=241.327 R3=238.558 R4=9.773 | Dose(pGy): Tot=112.680 R0=227.190 R1=169.672 R2=205.096 R3=144.821 R4=4.615
+[PROGRESS] Event 450000 | Transmitted: 132 | Edep(keV): Tot=591.309 R0=33.123 R1=136.422 R2=158.022 R3=241.834 R4=21.908 | Dose(pGy): Tot=100.509 R0=140.752 R1=193.234 R2=134.298 R3=146.811 R4=10.344
+[PROGRESS] Event 460000 | Transmitted: 124 | Edep(keV): Tot=639.791 R0=44.186 R1=107.275 R2=163.191 R3=287.703 R4=37.437 | Dose(pGy): Tot=108.750 R0=187.760 R1=151.949 R2=138.691 R3=174.656 R4=17.676
+[PROGRESS] Event 470000 | Transmitted: 144 | Edep(keV): Tot=550.680 R0=13.746 R1=127.401 R2=147.950 R3=240.904 R4=20.680 | Dose(pGy): Tot=93.603 R0=58.410 R1=180.456 R2=125.738 R3=146.246 R4=9.764
+[PROGRESS] Event 480000 | Transmitted: 134 | Edep(keV): Tot=578.034 R0=20.594 R1=125.875 R2=194.316 R3=229.473 R4=7.776 | Dose(pGy): Tot=98.252 R0=87.510 R1=178.295 R2=165.143 R3=139.306 R4=3.672
+[PROGRESS] Event 490000 | Transmitted: 151 | Edep(keV): Tot=736.324 R0=25.163 R1=122.438 R2=265.038 R3=314.198 R4=9.487 | Dose(pGy): Tot=125.158 R0=106.926 R1=173.427 R2=225.247 R3=190.740 R4=4.479
+[PROGRESS] Event 500000 | Transmitted: 154 | Edep(keV): Tot=615.829 R0=32.748 R1=101.049 R2=172.423 R3=299.105 R4=10.505 | Dose(pGy): Tot=104.677 R0=139.157 R1=143.130 R2=146.537 R3=181.578 R4=4.960
+[PROGRESS] Event 510000 | Transmitted: 146 | Edep(keV): Tot=663.810 R0=97.993 R1=75.559 R2=241.264 R3=233.629 R4=15.365 | Dose(pGy): Tot=112.833 R0=416.406 R1=107.026 R2=205.043 R3=141.829 R4=7.255
+[PROGRESS] Event 520000 | Transmitted: 125 | Edep(keV): Tot=460.314 R0=36.381 R1=121.421 R2=120.062 R3=182.451 R4=0.000 | Dose(pGy): Tot=78.243 R0=154.595 R1=171.986 R2=102.037 R3=110.761 R4=0.000
+[PROGRESS] Event 530000 | Transmitted: 136 | Edep(keV): Tot=653.418 R0=64.723 R1=90.109 R2=237.644 R3=245.603 R4=15.339 | Dose(pGy): Tot=111.066 R0=275.028 R1=127.635 R2=201.966 R3=149.099 R4=7.242
+[PROGRESS] Event 540000 | Transmitted: 129 | Edep(keV): Tot=517.608 R0=11.987 R1=129.403 R2=144.857 R3=231.361 R4=0.000 | Dose(pGy): Tot=87.982 R0=50.937 R1=183.293 R2=123.109 R3=140.453 R4=0.000
+[PROGRESS] Event 550000 | Transmitted: 132 | Edep(keV): Tot=692.867 R0=46.229 R1=118.671 R2=293.103 R3=228.374 R4=6.490 | Dose(pGy): Tot=117.771 R0=196.442 R1=168.091 R2=249.099 R3=138.639 R4=3.064
+[PROGRESS] Event 560000 | Transmitted: 155 | Edep(keV): Tot=625.726 R0=26.817 R1=113.174 R2=218.172 R3=267.564 R4=0.000 | Dose(pGy): Tot=106.359 R0=113.954 R1=160.305 R2=185.417 R3=162.430 R4=0.000
+[PROGRESS] Event 570000 | Transmitted: 119 | Edep(keV): Tot=535.539 R0=26.349 R1=88.552 R2=186.253 R3=234.385 R4=0.000 | Dose(pGy): Tot=91.029 R0=111.964 R1=125.429 R2=158.290 R3=142.289 R4=0.000
+[PROGRESS] Event 580000 | Transmitted: 143 | Edep(keV): Tot=679.677 R0=48.151 R1=82.182 R2=183.319 R3=351.976 R4=14.049 | Dose(pGy): Tot=115.529 R0=204.608 R1=116.406 R2=155.797 R3=213.674 R4=6.634
+[PROGRESS] Event 590000 | Transmitted: 123 | Edep(keV): Tot=543.104 R0=8.194 R1=118.197 R2=167.095 R3=249.619 R4=0.000 | Dose(pGy): Tot=92.315 R0=34.818 R1=167.419 R2=142.008 R3=151.537 R4=0.000
+[PROGRESS] Event 600000 | Transmitted: 137 | Edep(keV): Tot=673.546 R0=58.589 R1=102.399 R2=238.208 R3=234.678 R4=39.672 | Dose(pGy): Tot=114.487 R0=248.965 R1=145.042 R2=202.445 R3=142.466 R4=18.732
+[PROGRESS] Event 610000 | Transmitted: 148 | Edep(keV): Tot=682.784 R0=44.161 R1=94.562 R2=188.836 R3=342.478 R4=12.746 | Dose(pGy): Tot=116.058 R0=187.655 R1=133.942 R2=160.486 R3=207.909 R4=6.018
+[PROGRESS] Event 620000 | Transmitted: 144 | Edep(keV): Tot=660.233 R0=34.690 R1=123.901 R2=203.269 R3=265.280 R4=33.093 | Dose(pGy): Tot=112.225 R0=147.411 R1=175.499 R2=172.752 R3=161.044 R4=15.625
+[PROGRESS] Event 630000 | Transmitted: 131 | Edep(keV): Tot=643.495 R0=21.570 R1=159.021 R2=169.182 R3=256.790 R4=36.931 | Dose(pGy): Tot=109.379 R0=91.659 R1=225.245 R2=143.782 R3=155.890 R4=17.438
+[PROGRESS] Event 640000 | Transmitted: 127 | Edep(keV): Tot=560.487 R0=37.263 R1=75.986 R2=224.826 R3=221.621 R4=0.791 | Dose(pGy): Tot=95.270 R0=158.344 R1=107.629 R2=191.073 R3=134.540 R4=0.373
+[PROGRESS] Event 650000 | Transmitted: 127 | Edep(keV): Tot=632.044 R0=47.054 R1=101.382 R2=173.897 R3=309.710 R4=0.000 | Dose(pGy): Tot=107.433 R0=199.950 R1=143.602 R2=147.789 R3=188.016 R4=0.000
+[PROGRESS] Event 660000 | Transmitted: 140 | Edep(keV): Tot=594.024 R0=51.952 R1=94.919 R2=183.267 R3=250.037 R4=13.848 | Dose(pGy): Tot=100.970 R0=220.763 R1=134.448 R2=155.753 R3=151.790 R4=6.539
+[PROGRESS] Event 670000 | Transmitted: 128 | Edep(keV): Tot=679.804 R0=58.856 R1=79.291 R2=251.102 R3=290.554 R4=0.000 | Dose(pGy): Tot=115.551 R0=250.100 R1=112.312 R2=213.404 R3=176.387 R4=0.000
+[PROGRESS] Event 680000 | Transmitted: 137 | Edep(keV): Tot=755.155 R0=67.241 R1=108.489 R2=173.922 R3=333.169 R4=72.335 | Dose(pGy): Tot=128.359 R0=285.729 R1=153.669 R2=147.811 R3=202.257 R4=34.154
+[PROGRESS] Event 690000 | Transmitted: 147 | Edep(keV): Tot=672.025 R0=59.778 R1=156.259 R2=171.939 R3=280.115 R4=3.933 | Dose(pGy): Tot=114.229 R0=254.017 R1=221.333 R2=146.125 R3=170.050 R4=1.857
+[PROGRESS] Event 700000 | Transmitted: 126 | Edep(keV): Tot=620.468 R0=16.547 R1=170.402 R2=154.412 R3=279.107 R4=0.000 | Dose(pGy): Tot=105.465 R0=70.315 R1=241.365 R2=131.230 R3=169.438 R4=0.000
+[PROGRESS] Event 710000 | Transmitted: 133 | Edep(keV): Tot=556.210 R0=31.259 R1=117.726 R2=166.716 R3=231.698 R4=8.811 | Dose(pGy): Tot=94.543 R0=132.830 R1=166.752 R2=141.687 R3=140.657 R4=4.160
+[PROGRESS] Event 720000 | Transmitted: 154 | Edep(keV): Tot=760.790 R0=35.014 R1=172.112 R2=203.240 R3=340.176 R4=10.248 | Dose(pGy): Tot=129.317 R0=148.787 R1=243.788 R2=172.727 R3=206.511 R4=4.839
+[PROGRESS] Event 730000 | Transmitted: 132 | Edep(keV): Tot=517.713 R0=20.072 R1=134.357 R2=140.371 R3=222.754 R4=0.160 | Dose(pGy): Tot=87.999 R0=85.294 R1=190.309 R2=119.297 R3=135.227 R4=0.075
+[PROGRESS] Event 740000 | Transmitted: 122 | Edep(keV): Tot=629.312 R0=41.787 R1=135.019 R2=188.211 R3=264.295 R4=0.000 | Dose(pGy): Tot=106.969 R0=177.566 R1=191.247 R2=159.954 R3=160.446 R4=0.000
+[PROGRESS] Event 750000 | Transmitted: 140 | Edep(keV): Tot=643.054 R0=39.143 R1=105.864 R2=260.945 R3=183.351 R4=53.751 | Dose(pGy): Tot=109.304 R0=166.333 R1=149.951 R2=221.768 R3=111.307 R4=25.379
+[PROGRESS] Event 760000 | Transmitted: 139 | Edep(keV): Tot=661.587 R0=23.777 R1=156.116 R2=239.479 R3=242.214 R4=0.000 | Dose(pGy): Tot=112.455 R0=101.035 R1=221.130 R2=203.526 R3=147.041 R4=0.000
+[PROGRESS] Event 770000 | Transmitted: 160 | Edep(keV): Tot=712.322 R0=22.445 R1=147.896 R2=220.407 R3=291.620 R4=29.954 | Dose(pGy): Tot=121.078 R0=95.376 R1=209.486 R2=187.317 R3=177.034 R4=14.143
+[PROGRESS] Event 780000 | Transmitted: 141 | Edep(keV): Tot=679.384 R0=42.897 R1=104.266 R2=201.646 R3=286.010 R4=44.566 | Dose(pGy): Tot=115.480 R0=182.283 R1=147.687 R2=171.372 R3=173.628 R4=21.042
+[PROGRESS] Event 790000 | Transmitted: 121 | Edep(keV): Tot=518.485 R0=16.145 R1=71.849 R2=119.476 R3=285.899 R4=25.116 | Dose(pGy): Tot=88.131 R0=68.606 R1=101.770 R2=101.539 R3=173.561 R4=11.859
+[PROGRESS] Event 800000 | Transmitted: 153 | Edep(keV): Tot=720.022 R0=12.949 R1=101.944 R2=247.875 R3=356.805 R4=0.448 | Dose(pGy): Tot=122.387 R0=55.025 R1=144.398 R2=210.661 R3=216.606 R4=0.212
+[PROGRESS] Event 810000 | Transmitted: 124 | Edep(keV): Tot=549.258 R0=19.003 R1=102.021 R2=195.409 R3=232.583 R4=0.242 | Dose(pGy): Tot=93.361 R0=80.750 R1=144.507 R2=166.072 R3=141.194 R4=0.114
+[PROGRESS] Event 820000 | Transmitted: 160 | Edep(keV): Tot=723.752 R0=64.978 R1=92.684 R2=324.166 R3=241.924 R4=0.000 | Dose(pGy): Tot=123.021 R0=276.115 R1=131.281 R2=275.498 R3=146.865 R4=0.000
+[PROGRESS] Event 830000 | Transmitted: 139 | Edep(keV): Tot=534.904 R0=37.804 R1=85.861 R2=159.468 R3=238.463 R4=13.308 | Dose(pGy): Tot=90.921 R0=160.642 R1=121.617 R2=135.526 R3=144.764 R4=6.284
+[PROGRESS] Event 840000 | Transmitted: 112 | Edep(keV): Tot=442.753 R0=41.121 R1=63.105 R2=168.002 R3=170.526 R4=0.000 | Dose(pGy): Tot=75.258 R0=174.736 R1=89.384 R2=142.779 R3=103.522 R4=0.000
+[PROGRESS] Event 850000 | Transmitted: 123 | Edep(keV): Tot=574.364 R0=30.346 R1=119.471 R2=176.398 R3=248.149 R4=0.000 | Dose(pGy): Tot=97.629 R0=128.951 R1=169.224 R2=149.914 R3=150.644 R4=0.000
+[PROGRESS] Event 860000 | Transmitted: 153 | Edep(keV): Tot=651.366 R0=23.762 R1=119.185 R2=198.256 R3=284.305 R4=25.858 | Dose(pGy): Tot=110.717 R0=100.972 R1=168.819 R2=168.491 R3=172.594 R4=12.209
+[PROGRESS] Event 870000 | Transmitted: 110 | Edep(keV): Tot=548.480 R0=6.822 R1=126.300 R2=198.465 R3=189.280 R4=27.613 | Dose(pGy): Tot=93.229 R0=28.991 R1=178.897 R2=168.669 R3=114.906 R4=13.038
+[PROGRESS] Event 880000 | Transmitted: 130 | Edep(keV): Tot=617.141 R0=33.351 R1=78.675 R2=263.681 R3=241.434 R4=0.000 | Dose(pGy): Tot=104.900 R0=141.719 R1=111.439 R2=224.094 R3=146.568 R4=0.000
+[PROGRESS] Event 890000 | Transmitted: 160 | Edep(keV): Tot=769.285 R0=23.506 R1=128.227 R2=271.533 R3=323.937 R4=22.083 | Dose(pGy): Tot=130.761 R0=99.885 R1=181.626 R2=230.767 R3=196.653 R4=10.427
+[PROGRESS] Event 900000 | Transmitted: 142 | Edep(keV): Tot=711.844 R0=19.234 R1=212.369 R2=204.530 R3=275.711 R4=0.000 | Dose(pGy): Tot=120.997 R0=81.730 R1=300.809 R2=173.824 R3=167.376 R4=0.000
+[PROGRESS] Event 910000 | Transmitted: 106 | Edep(keV): Tot=599.071 R0=14.590 R1=127.527 R2=260.008 R3=181.003 R4=15.943 | Dose(pGy): Tot=101.828 R0=61.996 R1=180.635 R2=220.972 R3=109.882 R4=7.528
+[PROGRESS] Event 920000 | Transmitted: 128 | Edep(keV): Tot=593.324 R0=9.317 R1=138.890 R2=169.909 R3=275.207 R4=0.000 | Dose(pGy): Tot=100.851 R0=39.592 R1=196.730 R2=144.400 R3=167.070 R4=0.000
+[PROGRESS] Event 930000 | Transmitted: 126 | Edep(keV): Tot=642.867 R0=30.178 R1=120.770 R2=283.467 R3=208.453 R4=0.000 | Dose(pGy): Tot=109.273 R0=128.236 R1=171.064 R2=240.909 R3=126.546 R4=0.000
+[PROGRESS] Event 940000 | Transmitted: 138 | Edep(keV): Tot=545.497 R0=15.567 R1=148.176 R2=112.231 R3=218.407 R4=51.115 | Dose(pGy): Tot=92.722 R0=66.149 R1=209.883 R2=95.382 R3=132.589 R4=24.135
+[PROGRESS] Event 950000 | Transmitted: 110 | Edep(keV): Tot=570.081 R0=32.181 R1=177.913 R2=160.596 R3=199.391 R4=0.000 | Dose(pGy): Tot=96.901 R0=136.749 R1=252.004 R2=136.485 R3=121.044 R4=0.000
+[PROGRESS] Event 960000 | Transmitted: 131 | Edep(keV): Tot=591.811 R0=63.058 R1=156.856 R2=119.399 R3=252.499 R4=0.000 | Dose(pGy): Tot=100.594 R0=267.953 R1=222.178 R2=101.473 R3=153.285 R4=0.000
+[PROGRESS] Event 970000 | Transmitted: 116 | Edep(keV): Tot=576.002 R0=20.472 R1=137.507 R2=174.634 R3=243.389 R4=0.000 | Dose(pGy): Tot=97.907 R0=86.992 R1=194.771 R2=148.416 R3=147.755 R4=0.000
+[PROGRESS] Event 980000 | Transmitted: 149 | Edep(keV): Tot=717.395 R0=21.992 R1=133.172 R2=223.626 R3=338.605 R4=0.000 | Dose(pGy): Tot=121.941 R0=93.450 R1=188.631 R2=190.053 R3=205.557 R4=0.000
+[PROGRESS] Event 990000 | Transmitted: 134 | Edep(keV): Tot=628.432 R0=29.282 R1=101.620 R2=239.427 R3=257.036 R4=1.066 | Dose(pGy): Tot=106.819 R0=124.428 R1=143.940 R2=203.481 R3=156.039 R4=0.504
+
+====================[ RUN SUMMARY ]====================
+Primaries generated = 1000000
+========== Résumé Béryllium ==========
+Total particules entrées dans Be    : 1000839
+Total interactions dans le Be       : 127286
+======================================
+================= Résumé WaterSphere ==========
+Total particules entrées dans WaterSphere    : 0
+Total interactions dans le WaterSphereB      : 0
+===============================================
+========== Résumé spectre emission ==========
+Total particules inferieure a 3.5 keV      : 0
+Total particules superieure a 3.5 keV      : 1000000
+=============================================
+[STEP][SUMMARY] enter_plane_prim=13695 leave_plane_prim=13695
+[SpecSD][SUMMARY] enter=0 leave=0 outward=13622 rows_written=13622 unique_primary_events_counted=13613
+[LOSS][BY-PROC]
+  phot : 987272
+[LOSS][BY-MAT]
+  Aluminium : 339523
+  Beryllium : 55661
+  Brass : 580463
+  DialuminiumTrioxide : 1363
+  MyAir : 7475
+  StainlessSteel304 : 1249
+  Tungsten : 1538
+=======================================================
+
+================================================================================
+FIN DU SUIVI STEP PAR STEP - 10 evenements suivis (max=10)
+================================================================================
+
+
+==================== RÉSUMÉ DOSE ====================
+Énergie totale déposée dans l'eau : 64130.033 keV
+Dose totale dans l'eau (run)      : 10900.636 pGy = 10.901 nGy
+Dose par anneau (run) :
+  Anneau 0 (r=0-2mm) : 3626.750 keV -> 15411.281 pGy = 15.411 nGy
+  Anneau 1 (r=2-4mm) : 11801.739 keV -> 16716.522 pGy = 16.717 nGy
+  Anneau 2 (r=4-6mm) : 20381.797 keV -> 17321.825 pGy = 17.322 nGy
+  Anneau 3 (r=6-8mm) : 26842.214 keV -> 16295.133 pGy = 16.295 nGy
+  Anneau 4 (r=8-10mm) : 1477.533 keV -> 697.636 pGy = 0.698 nGy
+=====================================================
+[MT-MASTER] [RUN] EndOfRunAction: about to Write()
+... write file : output.root - done
+[MT-MASTER] [RUN] EndOfRunAction: Write() done
+[MT-MASTER] [RUN] EndOfRunAction: about to CloseFile(false)
+... close file : output.root - done
+[MT-MASTER] [RUN] EndOfRunAction: CloseFile(false) done

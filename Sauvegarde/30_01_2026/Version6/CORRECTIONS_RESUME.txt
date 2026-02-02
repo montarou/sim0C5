@@ -1,0 +1,201 @@
+================================================================================
+                    RÉSUMÉ DES CORRECTIONS - SIMULATION GEANT4
+                         Projet MiniX - Dosimétrie eau
+================================================================================
+
+Date: 30 janvier 2026
+Fichiers modifiés: AnalysisManagerSetup.cc, RunAction.cc, SurfaceSpectrumSD.cc
+
+================================================================================
+1. CORRECTION DU NTUPLE plane_passages (SurfaceSpectrumSD.cc)
+================================================================================
+
+PROBLÈME IDENTIFIÉ:
+-------------------
+Le ntuple "plane_passages" (z=18mm) contenait des données corrompues:
+- Les colonnes y_mm, z_mm, ekin_keV étaient toutes à 0
+- La colonne x_mm contenait les valeurs d'énergie (3.5-47.4 keV)
+- La colonne pdg était à 0 au lieu de 22 (gamma)
+- Messages d'erreur dans le log: "Column type does not match"
+
+CAUSE:
+------
+Décalage entre l'ordre des colonnes défini dans AnalysisManagerSetup.cc et 
+l'ordre de remplissage dans SurfaceSpectrumSD.cc.
+
+Structure définie dans le fichier ROOT:
+  Col 0: pdg (int)
+  Col 1: name (string)
+  Col 2: is_secondary (int)
+  Col 3: x_mm (double)
+  Col 4: y_mm (double)
+  Col 5: z_mm (double)
+  Col 6: ekin_keV (double)
+  Col 7: trackID (int)
+  Col 8: parentID (int)
+  Col 9: creator_process (string)
+
+Mais le code remplissait dans l'ordre:
+  Col 0: x_mm (double) → Type mismatch avec pdg (int)!
+  Col 1: y_mm (double) → Type mismatch avec name (string)!
+  etc.
+
+CORRECTION (SurfaceSpectrumSD.cc, lignes ~190-210):
+---------------------------------------------------
+AVANT:
+    man->FillNtupleDColumn(fPassageNtupleId, 0, x_mm);
+    man->FillNtupleDColumn(fPassageNtupleId, 1, y_mm);
+    man->FillNtupleDColumn(fPassageNtupleId, 2, z_mm);
+    man->FillNtupleDColumn(fPassageNtupleId, 3, E_keV);
+    man->FillNtupleIColumn(fPassageNtupleId, 4, pdg);
+    man->FillNtupleSColumn(fPassageNtupleId, 5, name);
+    man->FillNtupleIColumn(fPassageNtupleId, 6, trackID);
+    man->FillNtupleIColumn(fPassageNtupleId, 7, parentID);
+    man->FillNtupleSColumn(fPassageNtupleId, 8, creator_process);
+
+APRÈS:
+    man->FillNtupleIColumn(fPassageNtupleId, 0, pdg);
+    man->FillNtupleSColumn(fPassageNtupleId, 1, name);
+    man->FillNtupleIColumn(fPassageNtupleId, 2, is_secondary);
+    man->FillNtupleDColumn(fPassageNtupleId, 3, x_mm);
+    man->FillNtupleDColumn(fPassageNtupleId, 4, y_mm);
+    man->FillNtupleDColumn(fPassageNtupleId, 5, z_mm);
+    man->FillNtupleDColumn(fPassageNtupleId, 6, E_keV);
+    man->FillNtupleIColumn(fPassageNtupleId, 7, trackID);
+    man->FillNtupleIColumn(fPassageNtupleId, 8, parentID);
+    man->FillNtupleSColumn(fPassageNtupleId, 9, creator_process);
+
++ Ajout de la variable is_secondary pour harmoniser avec les autres ntuples.
+
+
+================================================================================
+2. CORRECTION DES HISTOGRAMMES DE DOSE (AnalysisManagerSetup.cc + RunAction.cc)
+================================================================================
+
+PROBLÈME IDENTIFIÉ:
+-------------------
+Les histogrammes de dose par batch de 10000 événements (H4, H10-H14) et 
+du run complet (H3, H5-H9) étaient mal remplis - toutes les valeurs 
+tombaient dans le premier bin.
+
+CAUSE:
+------
+Incohérence d'unités entre la définition et le remplissage:
+- Histogrammes définis avec plage [0, 1] µGy
+- Remplissage effectué en pGy (valeurs typiques: 100-400 pGy)
+- Or 100 pGy = 0.0001 µGy << limite basse du premier bin (0.005 µGy)
+
+CORRECTION (AnalysisManagerSetup.cc):
+-------------------------------------
+
+A) Histogrammes par 10000 événements - AVANT:
+    CreateH1("Dose_total_1000evt", "...", 200, 0., 1.);      // [0, 1] µGy
+    CreateH1("Dose_ring0_1000evt", "...", 200, 0., 1.);      // [0, 1] µGy
+    CreateH1("Dose_ring1_1000evt", "...", 200, 0., 1.);      // [0, 1] µGy
+    CreateH1("Dose_ring2_1000evt", "...", 200, 0., 1.);      // [0, 1] µGy
+    CreateH1("Dose_ring3_1000evt", "...", 200, 0., 1.);      // [0, 1] µGy
+    CreateH1("Dose_ring4_1000evt", "...", 200, 0., 1.);      // [0, 1] µGy
+
+A) Histogrammes par 10000 événements - APRÈS:
+    CreateH1("Dose_total_10000evt", "...", 200, 0., 300.);   // [0, 300] pGy
+    CreateH1("Dose_ring0_10000evt", "...", 200, 0., 500.);   // [0, 500] pGy
+    CreateH1("Dose_ring1_10000evt", "...", 200, 0., 500.);   // [0, 500] pGy
+    CreateH1("Dose_ring2_10000evt", "...", 200, 0., 500.);   // [0, 500] pGy
+    CreateH1("Dose_ring3_10000evt", "...", 200, 0., 500.);   // [0, 500] pGy
+    CreateH1("Dose_ring4_10000evt", "...", 200, 0., 100.);   // [0, 100] pGy
+
+B) Histogrammes du run complet - AVANT:
+    CreateH1("Dose_total_run", "...", 200, 0., 1.);          // [0, 1] µGy
+    CreateH1("Dose_ring0_run", "...", 200, 0., 1.);          // [0, 1] µGy
+    CreateH1("Dose_ring1_run", "...", 200, 0., 1.);          // [0, 1] µGy
+    CreateH1("Dose_ring2_run", "...", 200, 0., 1.);          // [0, 1] µGy
+    CreateH1("Dose_ring3_run", "...", 200, 0., 1.);          // [0, 1] µGy
+    CreateH1("Dose_ring4_run", "...", 200, 0., 1.);          // [0, 1] µGy
+
+B) Histogrammes du run complet - APRÈS:
+    CreateH1("Dose_total_run", "...", 200, 0., 20000.);      // [0, 20000] pGy
+    CreateH1("Dose_ring0_run", "...", 200, 0., 25000.);      // [0, 25000] pGy
+    CreateH1("Dose_ring1_run", "...", 200, 0., 25000.);      // [0, 25000] pGy
+    CreateH1("Dose_ring2_run", "...", 200, 0., 25000.);      // [0, 25000] pGy
+    CreateH1("Dose_ring3_run", "...", 200, 0., 25000.);      // [0, 25000] pGy
+    CreateH1("Dose_ring4_run", "...", 200, 0., 5000.);       // [0, 5000] pGy
+
+CORRECTION (RunAction.cc, EndOfRunAction):
+------------------------------------------
+
+AVANT:
+    constexpr G4double keV_to_uGy_per_gram = 1.602e-7;
+    G4double dose_total_run = fTotalEdepWater * keV_to_uGy_per_gram / kMassTotalWater;
+    am->FillH1(3, dose_total_run);  // Remplit en µGy
+
+APRÈS:
+    constexpr G4double keV_to_pGy_per_gram = 0.1602;
+    G4double dose_total_run_pGy = fTotalEdepWater * keV_to_pGy_per_gram / kMassTotalWater;
+    am->FillH1(3, dose_total_run_pGy);  // Remplit en pGy
+
++ Amélioration de l'affichage du résumé avec doses en pGy ET nGy.
+
+
+================================================================================
+3. PLAGES DES HISTOGRAMMES - JUSTIFICATION
+================================================================================
+
+Les plages ont été choisies en fonction des valeurs observées sur 1M d'événements:
+
+Par 10000 événements:
+---------------------
+  Dose totale:      109 ± 15 pGy    → plage [0, 300] pGy
+  Anneau 0 (0-2mm): 154 ± 87 pGy    → plage [0, 500] pGy
+  Anneau 1 (2-4mm): 167 ± 45 pGy    → plage [0, 500] pGy
+  Anneau 2 (4-6mm): 173 ± 39 pGy    → plage [0, 500] pGy
+  Anneau 3 (6-8mm): 164 ± 31 pGy    → plage [0, 500] pGy
+  Anneau 4 (8-10mm):  7 ± 8 pGy     → plage [0, 100] pGy
+
+Run complet (1M événements):
+----------------------------
+  Dose totale:      ~11000 pGy      → plage [0, 20000] pGy
+  Anneaux 0-3:      ~15000-17000 pGy → plage [0, 25000] pGy
+  Anneau 4:         ~1000-2000 pGy  → plage [0, 5000] pGy
+
+
+================================================================================
+4. RAPPEL DES CONVERSIONS D'UNITÉS
+================================================================================
+
+Énergie → Dose:
+---------------
+  1 keV = 1.602e-16 J
+  1 Gy = 1 J/kg
+  
+  Dose [pGy] = Edep [keV] × 0.1602 / masse [g]
+  Dose [nGy] = Dose [pGy] / 1000
+  Dose [µGy] = Dose [pGy] / 1e6
+
+Équivalences:
+-------------
+  1 µGy = 1000 nGy = 1e6 pGy
+  1 nGy = 1000 pGy
+  100 pGy = 0.1 nGy = 0.0001 µGy
+
+
+================================================================================
+5. FICHIERS À REMPLACER
+================================================================================
+
+Pour appliquer les corrections, remplacer les fichiers suivants dans src/:
+
+  1. src/AnalysisManagerSetup.cc  → Nouvelles plages des histogrammes
+  2. src/RunAction.cc             → Remplissage en pGy + affichage amélioré
+  3. src/SurfaceSpectrumSD.cc     → Ordre des colonnes corrigé
+
+Puis recompiler:
+  $ cd build
+  $ make -j4
+
+Et relancer la simulation:
+  $ ./MiniX run.mac
+
+
+================================================================================
+                              FIN DU DOCUMENT
+================================================================================

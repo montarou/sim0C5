@@ -1,0 +1,152 @@
+================================================================================
+                    RÉSUMÉ DES MODIFICATIONS - PROJET GEANT4
+                    Système de couronnes d'eau concentriques
+                              Date : 28/01/2026
+================================================================================
+
+1. OBJECTIF
+--------------------------------------------------------------------------------
+Remplacer le plan de scoring ScorePlane4 (z = 68 mm) par un système de 
+couronnes d'eau concentriques dans un conteneur PVC ouvert côté source.
+
+2. CONFIGURATION GÉOMÉTRIQUE FINALE
+--------------------------------------------------------------------------------
+
+2.1 Plans de scoring conservés :
+    - ScorePlane1  : z = 18 mm   (épaisseur 1 µm)
+    - ScorePlane2  : z = 28 mm   (épaisseur 1 mm)
+    - ScorePlane3  : z = 38 mm   (épaisseur 1 mm)
+    - ScorePlane5  : z = 118 mm  (épaisseur 1 mm)
+    - ScorePlane6  : z = 168 mm  (épaisseur 1 mm)
+
+2.2 Système de couronnes d'eau (remplace ScorePlane4) :
+    
+    Position Z :
+    - Surface eau côté source : z = 65 mm
+    - Centre eau             : z = 66.5 mm
+    - Fond eau               : z = 68 mm
+    - Fond PVC               : z = 68.5 mm (centre)
+    
+    Couronnes d'eau (H2O) :
+    ┌──────────────┬─────────────────┬──────────────┐
+    │   Couronne   │  Rayon (mm)     │ Épaisseur Z  │
+    ├──────────────┼─────────────────┼──────────────┤
+    │      0       │    0 -  5       │    3 mm      │
+    │      1       │    5 - 10       │    3 mm      │
+    │      2       │   10 - 15       │    3 mm      │
+    │      3       │   15 - 20       │    3 mm      │
+    └──────────────┴─────────────────┴──────────────┘
+    
+    Conteneur PVC :
+    - Rayon externe      : 21 mm
+    - Épaisseur parois   : 1 mm
+    - Hauteur parois     : 4 mm
+    - Épaisseur fond     : 1 mm
+    - Ouvert côté source (z-)
+
+3. FICHIERS MODIFIÉS
+--------------------------------------------------------------------------------
+
+3.1 DetectorConstruction.hh
+    
+    Ajouts :
+    - static const G4int kNbWaterRings = 4;
+    - G4LogicalVolume* GetWaterRingLogicalVolume(G4int ringIndex) const;
+    - G4int GetNumberOfWaterRings() const;
+    - Pointeurs pour solidPVCBottom, solidPVCWall
+    - Pointeurs pour logicPVCBottom, logicPVCWall
+    - Pointeurs pour physPVCBottom, physPVCWall
+    - Tableaux solidWaterRing[4], logicWaterRing[4], physWaterRing[4]
+    - G4Material* MyPVC
+
+3.2 DetectorConstruction.cc
+    
+    Modifications dans DefineMaterial() :
+    - Ajout du matériau PVC : G4_POLYVINYL_CHLORIDE
+    
+    Modifications dans ConstructGDML() :
+    - Suppression de la création de ScorePlane4 (lignes 303-308 originales)
+    - Ajout du système de couronnes d'eau avec conteneur PVC
+    - Conservation de ScorePlane5 à z = 118 mm
+    
+    Modifications dans ConstructSDandField() :
+    - ScorePlane4SD est maintenant attaché aux 4 volumes logicWaterRing[i]
+    - Messages de log mis à jour pour indiquer "WaterRings"
+    
+    Modifications dans le constructeur :
+    - Initialisation des tableaux solidWaterRing, logicWaterRing, physWaterRing
+    
+    Nouvelle fonction :
+    - GetWaterRingLogicalVolume(G4int ringIndex)
+
+3.3 AnalysisManagerSetup.cc
+    
+    Modifications :
+    - Ntuple renommé : "ScorePlane4_passages" → "WaterRings_passages"
+    - Description mise à jour : "Traversées dans les couronnes d'eau"
+    - Message de connexion SD mis à jour
+
+4. NTUPLES DE SORTIE
+--------------------------------------------------------------------------------
+
+Les ntuples suivants sont disponibles :
+
+    ┌─────────────────────────┬───────────────────────────────────────┐
+    │       Nom Ntuple        │           Description                 │
+    ├─────────────────────────┼───────────────────────────────────────┤
+    │ plane_passages          │ ScorePlane1 (z = 18 mm)               │
+    │ ScorePlane2_passages    │ ScorePlane2 (z = 28 mm)               │
+    │ ScorePlane3_passages    │ ScorePlane3 (z = 38 mm)               │
+    │ WaterRings_passages     │ Couronnes d'eau (z = 65-68 mm)        │
+    │ ScorePlane5_passages    │ ScorePlane5 (z = 118 mm)              │
+    │ ScorePlane6_passages    │ ScorePlane6 (z = 168 mm)              │
+    └─────────────────────────┴───────────────────────────────────────┘
+
+    Colonnes du ntuple WaterRings_passages :
+    0: pdg             - Code PDG de la particule
+    1: name            - Nom de la particule
+    2: is_secondary    - 0=primaire, 1=secondaire
+    3: x_mm            - Position X (mm)
+    4: y_mm            - Position Y (mm)
+    5: ekin_keV        - Énergie cinétique (keV)
+    6: trackID         - ID de la trace
+    7: parentID        - ID du parent
+    8: creator_process - Processus créateur
+
+5. FIGURES TIKZ GÉNÉRÉES
+--------------------------------------------------------------------------------
+
+5.1 figure_geometry_overview.pdf / .tex
+    - Vue d'ensemble de la géométrie complète
+    - Montre tous les plans de scoring et le système de couronnes
+    - Axe Z vertical avec graduations
+
+5.2 figure_water_container.pdf / .tex
+    - Vue détaillée du système de couronnes d'eau
+    - Vue en coupe (plan YZ) avec cotes
+    - Vue de dessus (plan XY) montrant les couronnes concentriques
+    - Légende et tableau des dimensions
+
+6. NOTES D'UTILISATION
+--------------------------------------------------------------------------------
+
+6.1 Compilation :
+    Les fichiers modifiés doivent remplacer les originaux dans :
+    - include/DetectorConstruction.hh
+    - src/DetectorConstruction.cc
+    - src/AnalysisManagerSetup.cc
+
+6.2 Visualisation :
+    Les couronnes d'eau sont affichées avec un dégradé de bleu :
+    - Couronne 0 : bleu clair
+    - Couronne 3 : bleu foncé
+    Le conteneur PVC est affiché en gris semi-transparent.
+
+6.3 Détecteur sensible :
+    Le même SD (ScorePlane4SD) est attaché aux 4 couronnes d'eau.
+    Toutes les interactions dans l'eau sont enregistrées dans le
+    même ntuple "WaterRings_passages".
+
+================================================================================
+                              FIN DU RÉSUMÉ
+================================================================================

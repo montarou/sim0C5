@@ -1,0 +1,606 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{multirow}
+
+\geometry{margin=2cm}
+
+\definecolor{headerblue}{RGB}{70,130,180}
+\definecolor{lightgray}{RGB}{245,245,245}
+\definecolor{headergreen}{RGB}{60,120,60}
+\definecolor{headerorange}{RGB}{200,100,50}
+\definecolor{codebg}{RGB}{248,248,248}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    breaklines=true
+}
+
+\title{\textbf{Documentation des Histogrammes et Ntuples}\\[0.5em]
+\large Simulation Geant4 -- Projet MiniX\\[0.3em]
+\normalsize Variables et conditions de remplissage}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+%=============================================================================
+\section{Histogrammes 1D}
+%=============================================================================
+
+\subsection{Vue d'ensemble}
+
+\begin{center}
+\begin{tabular}{c l c c c}
+\toprule
+\rowcolor{headergreen}
+\textcolor{white}{\textbf{ID}} & \textcolor{white}{\textbf{Nom}} & \textcolor{white}{\textbf{Bins}} & \textcolor{white}{\textbf{Min}} & \textcolor{white}{\textbf{Max}} \\
+\midrule
+0 & \texttt{E\_emission} & 150 & 0 & 50 keV \\
+\rowcolor{lightgray}
+1 & \texttt{theta\_emission} & 180 & 0° & 180° \\
+2 & \texttt{phi\_emission} & 90 & $-180$° & 180° \\
+\rowcolor{lightgray}
+3 & \texttt{Dose\_total\_run} & 200 & 0 & 1 $\mu$Gy \\
+4 & \texttt{Dose\_total\_1000evt} & 200 & 0 & 1 $\mu$Gy \\
+\rowcolor{lightgray}
+5 & \texttt{Dose\_ring0\_run} & 200 & 0 & 1 $\mu$Gy \\
+6 & \texttt{Dose\_ring1\_run} & 200 & 0 & 1 $\mu$Gy \\
+\rowcolor{lightgray}
+7 & \texttt{Dose\_ring2\_run} & 200 & 0 & 1 $\mu$Gy \\
+8 & \texttt{Dose\_ring3\_run} & 200 & 0 & 1 $\mu$Gy \\
+\rowcolor{lightgray}
+9 & \texttt{Dose\_ring4\_run} & 200 & 0 & 1 $\mu$Gy \\
+10 & \texttt{Dose\_ring0\_1000evt} & 200 & 0 & 1 $\mu$Gy \\
+\rowcolor{lightgray}
+11 & \texttt{Dose\_ring1\_1000evt} & 200 & 0 & 1 $\mu$Gy \\
+12 & \texttt{Dose\_ring2\_1000evt} & 200 & 0 & 1 $\mu$Gy \\
+\rowcolor{lightgray}
+13 & \texttt{Dose\_ring3\_1000evt} & 200 & 0 & 1 $\mu$Gy \\
+14 & \texttt{Dose\_ring4\_1000evt} & 200 & 0 & 1 $\mu$Gy \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%-----------------------------------------------------------------------------
+\subsection{Histogrammes d'émission (H0, H1, H2)}
+%-----------------------------------------------------------------------------
+
+\subsubsection{H0 -- Énergie des gammas primaires}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{E\_emission} \\
+Description & Énergie cinétique des gammas primaires à l'émission \\
+Bins & 150 \\
+Range & [0, 50] keV \\
+Unité & keV \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque génération d'un gamma primaire
+    \item \textbf{Où :} \texttt{PrimaryGeneratorAction1::GeneratePrimaries()} et \texttt{PrimaryGeneratorAction2::GeneratePrimaries()}
+    \item \textbf{Variable :} \texttt{energy = fParticleGun->GetParticleEnergy()}
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+analysisManager->FillH1(0, energy);  // energy en keV
+\end{lstlisting}
+
+\subsubsection{H1 -- Angle theta des gammas primaires}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{theta\_emission} \\
+Description & Angle polaire $\theta$ de la direction d'émission \\
+Bins & 180 \\
+Range & [0, 180] degrés \\
+Unité & degrés \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque génération d'un gamma primaire
+    \item \textbf{Où :} \texttt{PrimaryGeneratorAction1/2::GeneratePrimaries()}
+    \item \textbf{Variable :} \texttt{thetaDeg = acos(cosTheta) / deg}
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+analysisManager->FillH1(1, thetaDeg);  // theta en degres
+\end{lstlisting}
+
+\subsubsection{H2 -- Angle phi des gammas primaires}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{phi\_emission} \\
+Description & Angle azimutal $\phi$ de la direction d'émission \\
+Bins & 90 \\
+Range & [$-180$, 180] degrés \\
+Unité & degrés \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque génération d'un gamma primaire
+    \item \textbf{Où :} \texttt{PrimaryGeneratorAction1/2::GeneratePrimaries()}
+    \item \textbf{Variable :} \texttt{phiDeg = phi / deg}
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+analysisManager->FillH1(2, phiDeg);  // phi en degres
+\end{lstlisting}
+
+%-----------------------------------------------------------------------------
+\subsection{Histogrammes de dose -- Run complet (H3, H5--H9)}
+%-----------------------------------------------------------------------------
+
+\subsubsection{Formule de calcul de la dose}
+
+\begin{equation}
+\text{Dose [$\mu$Gy]} = \frac{E_{\text{dep}} \text{ [keV]} \times 1.602 \times 10^{-7}}{\text{masse [g]}}
+\end{equation}
+
+\textbf{Masses des anneaux d'eau} (épaisseur $Z = 3$ mm, $\rho_{\text{eau}} = 1$ g/cm$^3$) :
+
+\begin{center}
+\begin{tabular}{c c c c}
+\toprule
+\textbf{Anneau} & \textbf{Rayon (mm)} & \textbf{Volume (mm$^3$)} & \textbf{Masse (g)} \\
+\midrule
+0 & 0 -- 2 & $\pi \times 4 \times 3 = 37.70$ & 0.03770 \\
+1 & 2 -- 4 & $\pi \times 12 \times 3 = 113.10$ & 0.11310 \\
+2 & 4 -- 6 & $\pi \times 20 \times 3 = 188.50$ & 0.18850 \\
+3 & 6 -- 8 & $\pi \times 28 \times 3 = 263.89$ & 0.26389 \\
+4 & 8 -- 10 & $\pi \times 36 \times 3 = 339.29$ & 0.33929 \\
+\midrule
+\textbf{Total} & 0 -- 10 & $\pi \times 100 \times 3 = 942.48$ & 0.94248 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection{H3 -- Dose totale dans l'eau (run complet)}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{Dose\_total\_run} \\
+Description & Dose totale déposée dans toute l'eau du container \\
+Bins & 200 \\
+Range & [0, 1] $\mu$Gy \\
+Unité & $\mu$Gy \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} Une seule fois, à la fin du run
+    \item \textbf{Où :} \texttt{RunAction::EndOfRunAction()}
+    \item \textbf{Variable :} \texttt{fTotalEdepWater} (énergie accumulée sur tout le run)
+    \item \textbf{Nombre d'entrées :} 1 par run
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+G4double dose_total_run = fTotalEdepWater * keV_to_uGy_per_gram / kMassTotalWater;
+am->FillH1(3, dose_total_run);
+\end{lstlisting}
+
+\subsubsection{H5--H9 -- Dose par anneau (run complet)}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Noms & \texttt{Dose\_ring0\_run} à \texttt{Dose\_ring4\_run} \\
+Description & Dose déposée dans chaque anneau (run complet) \\
+Bins & 200 \\
+Range & [0, 1] $\mu$Gy \\
+Unité & $\mu$Gy \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} Une seule fois, à la fin du run
+    \item \textbf{Où :} \texttt{RunAction::EndOfRunAction()}
+    \item \textbf{Variable :} \texttt{fTotalEdepRing[i]} pour $i \in [0,4]$
+    \item \textbf{Nombre d'entrées :} 1 par run pour chaque histogramme
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+for (G4int i = 0; i < kNbWaterRings; i++) {
+    G4double dose_ring_run = fTotalEdepRing[i] * keV_to_uGy_per_gram / kMassRing[i];
+    am->FillH1(5 + i, dose_ring_run);  // H5 a H9
+}
+\end{lstlisting}
+
+%-----------------------------------------------------------------------------
+\subsection{Histogrammes de dose -- Par 1000 événements (H4, H10--H14)}
+%-----------------------------------------------------------------------------
+
+\subsubsection{H4 -- Dose totale dans l'eau (par 1000 événements)}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{Dose\_total\_1000evt} \\
+Description & Distribution des doses par tranche de 1000 événements \\
+Bins & 200 \\
+Range & [0, 1] $\mu$Gy \\
+Unité & $\mu$Gy \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} Tous les 1000 événements (eventID \% 1000 == 0)
+    \item \textbf{Où :} \texttt{RunAction::CheckAndFillDoseHistograms()}
+    \item \textbf{Variable :} \texttt{fEdepWater1000} (énergie accumulée sur 1000 evt)
+    \item \textbf{Nombre d'entrées :} $N_{\text{events}} / 1000$ par run
+    \item \textbf{Réinitialisation :} \texttt{fEdepWater1000 = 0} après chaque remplissage
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+if (eventID > 0 && eventID % 1000 == 0 && eventID != fLastHistoFillEvent) {
+    fLastHistoFillEvent = eventID;
+    
+    G4double dose_total = fEdepWater1000 * keV_to_uGy_per_gram / kMassTotalWater;
+    analysisManager->FillH1(4, dose_total);
+    
+    fEdepWater1000 = 0.0;  // Reinitialisation de l'accumulateur
+}
+\end{lstlisting}
+
+\subsubsection{H10--H14 -- Dose par anneau (par 1000 événements)}
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Noms & \texttt{Dose\_ring0\_1000evt} à \texttt{Dose\_ring4\_1000evt} \\
+Description & Distribution des doses par anneau et par tranche de 1000 evt \\
+Bins & 200 \\
+Range & [0, 1] $\mu$Gy \\
+Unité & $\mu$Gy \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} Tous les 1000 événements (eventID \% 1000 == 0)
+    \item \textbf{Où :} \texttt{RunAction::CheckAndFillDoseHistograms()}
+    \item \textbf{Variable :} \texttt{fEdepRing1000[i]} pour $i \in [0,4]$
+    \item \textbf{Nombre d'entrées :} $N_{\text{events}} / 1000$ par run pour chaque histo
+    \item \textbf{Réinitialisation :} \texttt{fEdepRing1000[i] = 0} après chaque remplissage
+\end{itemize}
+
+\begin{lstlisting}[language=C++]
+if (eventID > 0 && eventID % 1000 == 0 && eventID != fLastHistoFillEvent) {
+    for (G4int i = 0; i < kNbWaterRings; i++) {
+        G4double dose_ring = fEdepRing1000[i] * keV_to_uGy_per_gram / kMassRing[i];
+        analysisManager->FillH1(10 + i, dose_ring);  // H10 a H14
+        
+        fEdepRing1000[i] = 0.0;  // Reinitialisation
+    }
+}
+\end{lstlisting}
+
+%-----------------------------------------------------------------------------
+\subsection{Flux de données pour les histogrammes de dose}
+%-----------------------------------------------------------------------------
+
+\begin{enumerate}
+    \item \textbf{SteppingAction::UserSteppingAction()}
+    \begin{itemize}
+        \item Détecte les dépôts d'énergie dans les volumes \texttt{logicWaterRing0} à \texttt{logicWaterRing4}
+        \item Appelle \texttt{fEventAction->AddEdepToRing(ringIndex, edep)}
+    \end{itemize}
+    
+    \item \textbf{EventAction::AddEdepToRing()}
+    \begin{itemize}
+        \item Accumule l'énergie dans \texttt{fEdepRing[ringIndex]} et \texttt{fEdepTotalWater}
+        \item Ces variables sont réinitialisées au début de chaque événement
+    \end{itemize}
+    
+    \item \textbf{EventAction::EndOfEventAction()}
+    \begin{itemize}
+        \item Transmet les énergies à \texttt{RunAction::AddEdepFromEvent()}
+        \item Appelle \texttt{RunAction::CheckAndFillDoseHistograms()}
+    \end{itemize}
+    
+    \item \textbf{RunAction::AddEdepFromEvent()}
+    \begin{itemize}
+        \item Accumule dans \texttt{fTotalEdepRing[i]} et \texttt{fTotalEdepWater} (pour fin de run)
+        \item Accumule dans \texttt{fEdepRing1000[i]} et \texttt{fEdepWater1000} (pour 1000 evt)
+    \end{itemize}
+    
+    \item \textbf{RunAction::CheckAndFillDoseHistograms()}
+    \begin{itemize}
+        \item Si \texttt{eventID \% 1000 == 0} : remplit H4 et H10--H14, puis réinitialise les accumulateurs 1000 evt
+    \end{itemize}
+    
+    \item \textbf{RunAction::EndOfRunAction()}
+    \begin{itemize}
+        \item Remplit H3 et H5--H9 avec les totaux du run
+    \end{itemize}
+\end{enumerate}
+
+%=============================================================================
+\newpage
+\section{Ntuples}
+%=============================================================================
+
+\subsection{Vue d'ensemble}
+
+\begin{center}
+\begin{tabular}{c l c l}
+\toprule
+\rowcolor{headerblue}
+\textcolor{white}{\textbf{ID}} & \textcolor{white}{\textbf{Nom}} & \textcolor{white}{\textbf{Position Z}} & \textcolor{white}{\textbf{Volume}} \\
+\midrule
+0 & \texttt{plane\_passages} & 18 mm & ScorePlane1 \\
+\rowcolor{lightgray}
+1 & \texttt{ScorePlane2\_passages} & 28 mm & ScorePlane2 \\
+2 & \texttt{ScorePlane3\_passages} & 38 mm & ScorePlane3 \\
+\rowcolor{lightgray}
+3 & \texttt{WaterRings\_passages} & 65--68 mm & Couronnes d'eau \\
+4 & \texttt{ScorePlane5\_passages} & 70 mm & ScorePlane5 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%-----------------------------------------------------------------------------
+\subsection{Ntuple 0 : \texttt{plane\_passages}}
+%-----------------------------------------------------------------------------
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{plane\_passages} \\
+Description & Traversées +Z du plan ScorePlane1 \\
+Position & $z = 18$ mm \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Variables :}
+
+\begin{center}
+\begin{tabular}{c >{\ttfamily}l l l}
+\toprule
+\rowcolor{headerblue}
+\textcolor{white}{\textbf{Col.}} & \textcolor{white}{\textbf{Variable}} & \textcolor{white}{\textbf{Type}} & \textcolor{white}{\textbf{Description}} \\
+\midrule
+0 & x\_mm           & Double & Position X (mm) \\
+\rowcolor{lightgray}
+1 & y\_mm           & Double & Position Y (mm) \\
+2 & z\_mm           & Double & Position Z (mm) \\
+\rowcolor{lightgray}
+3 & ekin\_keV       & Double & Énergie cinétique (keV) \\
+4 & pdg             & Int    & Code PDG de la particule \\
+\rowcolor{lightgray}
+5 & name            & String & Nom de la particule \\
+6 & trackID         & Int    & ID de la trace \\
+\rowcolor{lightgray}
+7 & parentID        & Int    & ID du parent (0 si primaire) \\
+8 & creator\_process & String & Processus créateur \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque traversée du plan dans la direction +Z
+    \item \textbf{Où :} \texttt{SurfaceSpectrumSD::ProcessHits()}
+    \item \textbf{Condition :} \texttt{postPoint->GetStepStatus() == fGeomBoundary} et direction +Z
+\end{itemize}
+
+%-----------------------------------------------------------------------------
+\subsection{Ntuples 1--2 : \texttt{ScorePlane2/3\_passages}}
+%-----------------------------------------------------------------------------
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Noms & \texttt{ScorePlane2\_passages}, \texttt{ScorePlane3\_passages} \\
+Description & Traversées +Z des plans ScorePlane2 et ScorePlane3 \\
+Positions & $z = 28$ mm et $z = 38$ mm \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Variables :}
+
+\begin{center}
+\begin{tabular}{c >{\ttfamily}l l l}
+\toprule
+\rowcolor{headerblue}
+\textcolor{white}{\textbf{Col.}} & \textcolor{white}{\textbf{Variable}} & \textcolor{white}{\textbf{Type}} & \textcolor{white}{\textbf{Description}} \\
+\midrule
+0 & pdg             & Int    & Code PDG de la particule \\
+\rowcolor{lightgray}
+1 & name            & String & Nom de la particule \\
+2 & is\_secondary   & Int    & 0 = primaire, 1 = secondaire \\
+\rowcolor{lightgray}
+3 & x\_mm           & Double & Position X (mm) \\
+4 & y\_mm           & Double & Position Y (mm) \\
+\rowcolor{lightgray}
+5 & ekin\_keV       & Double & Énergie cinétique (keV) \\
+6 & trackID         & Int    & ID de la trace \\
+\rowcolor{lightgray}
+7 & parentID        & Int    & ID du parent (0 si primaire) \\
+8 & creator\_process & String & Processus créateur \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque traversée du plan dans la direction +Z
+    \item \textbf{Où :} \texttt{ScorePlane2SD::ProcessHits()} et \texttt{ScorePlane3SD::ProcessHits()}
+    \item \textbf{Condition :} \texttt{postPoint->GetStepStatus() == fGeomBoundary} et direction +Z
+\end{itemize}
+
+%-----------------------------------------------------------------------------
+\subsection{Ntuple 3 : \texttt{WaterRings\_passages}}
+%-----------------------------------------------------------------------------
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{WaterRings\_passages} \\
+Description & Traversées dans les 5 couronnes d'eau concentriques \\
+Position & $z = 65$ à 68 mm \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Variables :} Identiques aux ntuples 1--2.
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque traversée d'une couronne d'eau
+    \item \textbf{Où :} \texttt{ScorePlane4SD::ProcessHits()}
+    \item \textbf{Note :} Les 5 couronnes partagent le même ntuple
+\end{itemize}
+
+\vspace{0.5em}
+\textbf{Identification des couronnes en post-traitement :}
+
+La position radiale $r = \sqrt{x^2 + y^2}$ permet d'identifier la couronne :
+
+\begin{center}
+\begin{tabular}{c c}
+\toprule
+\textbf{Couronne} & \textbf{Condition sur $r$ (mm)} \\
+\midrule
+0 & $0 \leq r < 2$ \\
+1 & $2 \leq r < 4$ \\
+2 & $4 \leq r < 6$ \\
+3 & $6 \leq r < 8$ \\
+4 & $8 \leq r < 10$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%-----------------------------------------------------------------------------
+\subsection{Ntuple 4 : \texttt{ScorePlane5\_passages}}
+%-----------------------------------------------------------------------------
+
+\begin{tabular}{ll}
+\toprule
+\textbf{Paramètre} & \textbf{Valeur} \\
+\midrule
+Nom & \texttt{ScorePlane5\_passages} \\
+Description & Traversées +Z du plan ScorePlane5 (après les couronnes d'eau) \\
+Position & $z = 70$ mm \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Variables :} Identiques aux ntuples 1--2.
+
+\vspace{0.5em}
+\textbf{Condition de remplissage :}
+\begin{itemize}
+    \item \textbf{Quand :} À chaque traversée du plan dans la direction +Z
+    \item \textbf{Où :} \texttt{ScorePlane5SD::ProcessHits()}
+    \item \textbf{Condition :} \texttt{postPoint->GetStepStatus() == fGeomBoundary} et direction +Z
+\end{itemize}
+
+%=============================================================================
+\newpage
+\section{Récapitulatif des fichiers sources}
+%=============================================================================
+
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+\rowcolor{headerorange}
+\textcolor{white}{\textbf{Fichier}} & \textcolor{white}{\textbf{Rôle}} \\
+\midrule
+\texttt{AnalysisManagerSetup.cc} & Création des 15 histogrammes et 5 ntuples \\
+\rowcolor{lightgray}
+\texttt{PrimaryGeneratorAction1.cc} & Remplissage H0, H1, H2 (mode 1) \\
+\texttt{PrimaryGeneratorAction2.cc} & Remplissage H0, H1, H2 (mode 2) \\
+\rowcolor{lightgray}
+\texttt{SteppingAction.cc} & Détection dépôts énergie dans anneaux \\
+\texttt{EventAction.cc/hh} & Accumulation énergie par événement \\
+\rowcolor{lightgray}
+\texttt{RunAction.cc/hh} & Accumulation run, calcul dose, remplissage H3--H14 \\
+\texttt{SurfaceSpectrumSD.cc} & Remplissage ntuple 0 \\
+\rowcolor{lightgray}
+\texttt{ScorePlane2SD.cc} & Remplissage ntuple 1 \\
+\texttt{ScorePlane3SD.cc} & Remplissage ntuple 2 \\
+\rowcolor{lightgray}
+\texttt{ScorePlane4SD.cc} & Remplissage ntuple 3 (WaterRings) \\
+\texttt{ScorePlane5SD.cc} & Remplissage ntuple 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%=============================================================================
+\section{Exemple de run}
+%=============================================================================
+
+Pour un run de 10\,000 événements :
+
+\begin{center}
+\begin{tabular}{l c l}
+\toprule
+\textbf{Histogramme} & \textbf{Nb entrées} & \textbf{Signification} \\
+\midrule
+H0 (E\_emission) & 10\,000 & Une entrée par gamma primaire \\
+H1 (theta\_emission) & 10\,000 & Une entrée par gamma primaire \\
+H2 (phi\_emission) & 10\,000 & Une entrée par gamma primaire \\
+\midrule
+H3 (Dose\_total\_run) & 1 & Dose totale du run \\
+H5--H9 (Dose\_ringX\_run) & 1 chacun & Dose par anneau (run) \\
+\midrule
+H4 (Dose\_total\_1000evt) & 10 & Distribution des doses par tranche \\
+H10--H14 (Dose\_ringX\_1000evt) & 10 chacun & Distribution par anneau et tranche \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

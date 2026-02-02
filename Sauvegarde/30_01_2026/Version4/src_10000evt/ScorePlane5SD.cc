@@ -1,4 +1,4 @@
-#include "ScorePlane6SD.hh"
+#include "ScorePlane5SD.hh"
 
 #include "G4Step.hh"
 #include "G4Track.hh"
@@ -22,13 +22,13 @@ namespace {
     }
 }
 
-ScorePlane6SD::ScorePlane6SD(const G4String& name)
+ScorePlane5SD::ScorePlane5SD(const G4String& name)
     : G4VSensitiveDetector(name)
 {
-    G4cout << ThreadTag() << " [ScorePlane6SD] Constructeur: " << name << G4endl;
+    G4cout << ThreadTag() << " [ScorePlane5SD] Constructeur: " << name << G4endl;
 }
 
-void ScorePlane6SD::Initialize(G4HCofThisEvent*)
+void ScorePlane5SD::Initialize(G4HCofThisEvent*)
 {
     fTracksThisEvent.clear();
     
@@ -37,12 +37,12 @@ void ScorePlane6SD::Initialize(G4HCofThisEvent*)
     
     static int dbg = 0;
     if (dbg < 5) {
-        G4cout << ThreadTag() << " [ScorePlane6SD] Initialize event " << eid << G4endl;
+        G4cout << ThreadTag() << " [ScorePlane5SD] Initialize event " << eid << G4endl;
         ++dbg;
     }
 }
 
-G4bool ScorePlane6SD::ProcessHits(G4Step* step, G4TouchableHistory*)
+G4bool ScorePlane5SD::ProcessHits(G4Step* step, G4TouchableHistory*)
 {
     if (!step) return false;
 
@@ -58,7 +58,7 @@ G4bool ScorePlane6SD::ProcessHits(G4Step* step, G4TouchableHistory*)
     const G4VPhysicalVolume* prePV = preStep->GetPhysicalVolume();
     const G4VPhysicalVolume* postPV = postStep->GetPhysicalVolume();
 
-    const G4String targetName = "physScorePlane6";
+    const G4String targetName = "physScorePlane5";
     
     const bool enteringVolume = 
         ((!prePV) || (prePV->GetName() != targetName)) &&
@@ -127,7 +127,7 @@ G4bool ScorePlane6SD::ProcessHits(G4Step* step, G4TouchableHistory*)
 
             static int dbg_write = 0;
             if (dbg_write < 20) {
-                G4cout << "[ScorePlane6SD] WROTE row: pdg=" << pdg 
+                G4cout << "[ScorePlane5SD] WROTE row: pdg=" << pdg 
                        << " name=" << name
                        << " is_secondary=" << is_secondary
                        << " x=" << x_mm << " mm"
@@ -142,7 +142,7 @@ G4bool ScorePlane6SD::ProcessHits(G4Step* step, G4TouchableHistory*)
     return true;
 }
 
-void ScorePlane6SD::EndOfEvent(G4HCofThisEvent*)
+void ScorePlane5SD::EndOfEvent(G4HCofThisEvent*)
 {
     auto ev = G4RunManager::GetRunManager()->GetCurrentEvent();
     G4int eid = ev ? ev->GetEventID() : -1;
@@ -150,7 +150,7 @@ void ScorePlane6SD::EndOfEvent(G4HCofThisEvent*)
     static int dbg = 0;
     if (dbg < 5 || fTracksThisEvent.size() > 0) {
         if (dbg < 20) {
-            G4cout << ThreadTag() << " [ScorePlane6SD] EndOfEvent " << eid 
+            G4cout << ThreadTag() << " [ScorePlane5SD] EndOfEvent " << eid 
                    << ": " << fTracksThisEvent.size() << " particules enregistrées"
                    << G4endl;
             ++dbg;
@@ -158,9 +158,9 @@ void ScorePlane6SD::EndOfEvent(G4HCofThisEvent*)
     }
 }
 
-void ScorePlane6SD::PrintSummary() const
+void ScorePlane5SD::PrintSummary() const
 {
-    G4cout << "[ScorePlane6SD][SUMMARY]"
+    G4cout << "[ScorePlane5SD][SUMMARY]"
            << " total=" << fCntTotal
            << " accepted=" << fCntAccepted
            << " rejected=" << fCntRejected
